@@ -5,7 +5,7 @@ from . import models
 # Register your models here.
 class OfficeAdmin(admin.ModelAdmin):
     search_fields = ['ofi_des']
-    list_display = ('ofi_des')
+    list_display = ('ofi_des',)
 
 class TupaAdmin(admin.ModelAdmin):
     search_fields = ['id_ofi_begin', 'id_ofi_end', 'tup_des','tup_requeriments','tup_cost','tup_days']
@@ -13,11 +13,11 @@ class TupaAdmin(admin.ModelAdmin):
 
 class Type_documentAdmin(admin.ModelAdmin):
     search_fields = ['doc_des']
-    list_display = ('doc_des')
+    list_display = ('doc_des',)
 
 class AttachmentsAdmin(admin.ModelAdmin):
     search_fields = ['att_path']
-    list_display = ('att_path')
+    list_display = ('att_path',)
 
 class MovementsAdmin(admin.ModelAdmin):
     search_fields = ['mov_order','id_attachments','id_ofi_begin','id_ofi_end','id_doc_sender','move_recibed']
@@ -25,7 +25,7 @@ class MovementsAdmin(admin.ModelAdmin):
 
 class Document_identityAdmin(admin.ModelAdmin):
     search_fields = ['doc_des']
-    list_display = ('doc_des')
+    list_display = ('doc_des',)
 
 class PersonAdmin(admin.ModelAdmin):
     search_fields = ['id_doc','per_name','per_lastname','per_doc','per_address','per_cellphone','per_type']
