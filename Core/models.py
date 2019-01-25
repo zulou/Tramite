@@ -2,30 +2,63 @@ from django.db import models
 
 # Create your models here.
 
-class operador(models.Model):
-    nombre_operador = models.CharField(max_length=12,null=False)
-    usuario = models.CharField(max_length=12,null=False)
-    password = models.CharField(max_length=12,null=False)
-    tipo_operador = models.CharField(max_length=12,null=False)
+class Office(models.Model):
+    ofi_des = models.CharField(max_length=12, null=False)
     def __str__(self):
-        return(self.nombre_operador+" "+self.usuario+" "+self.password)
+        return(self.ofi_des)
 
-class turno(models.Model):
-    descripcion_turno = models.CharField(max_length=12, null=False)
+class Tupa(models.Model):
+    id_ofi_begin = models.ForeignKey(Office, on_delete=models.CASCADE, related_name="tupa_office_begin")
+    id_ofi_end = models.ForeignKey(Office, on_delete=models.CASCADE, related_name="tupa_office_end")
+    tup_des = models.CharField(max_length=12,null=False)
+    tup_requeriments= models.CharField(max_length=12,null=False)
+    tup_cost= models.CharField(max_length=12,null=False)
+    tup_days= models.CharField(max_length=12,null=False)
+
+
+class Type_document(models.Model):
+    doc_des= models.CharField(max_length=12, null=False)
     def __str__(self):
-        return(self.descripcion_turno)
+        return(self.doc_des)
 
-class equipo(models.Model):
-    nombre_equipo = models.CharField(max_length=12, null=False)
-    modelo = models.CharField(max_length=12, null=False)
-    estado = models.IntegerField(max_length=12,null=False)
+class Attachments(models.Model):
+    att_path= models.CharField(max_length=12, null=False)
     def __str__(self):
-        return(self.nombre_equipo+" "+self.modelo+" ")
+        return(self.att_path)
 
-class actividad(models.Model):
-    id_turno=models.ForeignKey(turno,on_delete=models.CASCADE,related_name="actividad_turno")
-    id_operador = models.ForeignKey(operador,on_delete=models.CASCADE, related_name="actividad_operador")
-    id_ayudante=models.ForeignKey(operador,on_delete=models.CASCADE, related_name="actividad_ayudante",null=True)
-    id_equipo=models.ForeignKey(equipo,on_delete=models.CASCADE, related_name="actividad_equipo")
-    fecha_actividad = models.DateField(blank=True, default=date.today)
-    nivel = models.CharField(max_length=12, null=True)
+class Movements(models.Model):
+    mov_order = models.IntegerField( null=False)
+    id_attachments = models.IntegerField( null=False)
+    id_ofi_begin = models.IntegerField( null=False)
+    id_ofi_end = models.IntegerField( null=False)
+    id_doc_sender = models.IntegerField( null=False)
+    move_recibed = models.IntegerField( null=False)
+
+
+class Document_identity(models.Model):
+    doc_des= models.CharField(max_length=12, null=False)
+    def __str__(self):
+        return(self.doc_des)
+
+class Person(models.Model):
+    id_doc = models.ForeignKey(Document_identity, on_delete=models.CASCADE, related_name="person_document_identity")
+    per_name = models.CharField(max_length=12, null=False)
+    per_lastname = models.CharField(max_length=12, null=False)
+    per_doc = models.CharField(max_length=12, null=False)
+    per_address = models.CharField(max_length=12, null=False)
+    per_cellphone = models.CharField(max_length=12, null=False)
+    per_type = models.CharField(max_length=12, null=False)
+    def __str__(self):
+        return(self.id_doc+" "+self.per_name)
+
+
+
+class Document (models.Model):
+    id_type_document = models.ForeignKey(Type_document,on_delete=models.CASCADE,related_name="document_type_document")
+    id_person = models.ForeignKey(Person, on_delete=models.CASCADE, related_name="document_person")
+    id_tupa = models.ForeignKey(Tupa, on_delete=models.CASCADE, related_name="document_tupa")
+    doc_number= models.CharField(max_length=12, null=False)
+    doc_exp_number = models.IntegerField( null=False)
+    doc_des = models.CharField(max_length=12, null=False)
+    doc_pages = models.IntegerField( null=False)
+    doc_type= models.IntegerField( null=False)
