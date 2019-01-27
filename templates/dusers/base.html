@@ -6,7 +6,7 @@
 * Copyright (c) 2018 creativeLabs Łukasz Holeczek
 * Licensed under MIT (https://coreui.io/license)
 -->
-
+{% load static %}
 <html lang="en">
   <head>
     <base href="./">
@@ -18,15 +18,23 @@
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>CoreUI Free Bootstrap Admin Template</title>
     <!-- Icons-->
-    <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
-    <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
-    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+      <link href="{% static 'cssT/coreui-icons.min.css' %}" rel="stylesheet">
+
+      <link href="{% static 'cssT/flag-icon.min.css' %}" rel="stylesheet">
+
+      <link href="{% static 'cssT/font-awesome.min.css' %}" rel="stylesheet">
+
+      <link href="{% static 'cssT/simple-line-icons.css' %}" rel="stylesheet">
+
+
+
     <!-- Main styles for this application-->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+    <link href="{% static 'cssT/style.css' %}" rel="stylesheet">
+    <link href="{% static 'cssT/pace.min.css' %}" rel="stylesheet">
+
     <!-- Global site tag (gtag.js) - Google Analytics-->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <!--<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>-->
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -46,8 +54,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+
+          <img class="navbar-brand-full" src="{% static 'img/brand/logo.svg'%}" width="89" height="25" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized" src="{% static 'img/brand/sygnet.svg'%}" width="30" height="30" alt="CoreUI Logo">
       </a>
       <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
@@ -82,7 +91,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+            <img class="img-avatar" src="{% static 'img/avatars/6.jpg'%}" alt="admin@bootstrapmaster.com">
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-header text-center">
@@ -307,7 +316,7 @@
                 <i class="nav-icon icon-star"></i> Pages</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                  <a class="nav-link" href="login.html" target="_top">
+                  <a class="nav-link" href="registration/login.html" target="_top">
                     <i class="nav-icon icon-star"></i> Login</a>
                 </li>
                 <li class="nav-item">
@@ -445,413 +454,27 @@
               <!-- /.col-->
             </div>
             <!-- /.row-->
-            <div class="row">
-              <div class="col-sm-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="text-value">89.9%</div>
-                    <div>Lorem ipsum...</div>
-                    <div class="progress progress-xs my-2">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">Lorem ipsum dolor sit amet enim.</small>
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-5">
+
                   </div>
+
+                  <!-- /.col-->
                 </div>
+                <!-- /.row-->
+
+                <!--<div class="chart-wrapper" style="height:300px;margin-top:40px;">
+                  <canvas class="chart" id="main-chart" height="300"></canvas>
+                </div>-->
+                {% block content %}
+
+                {% endblock %}
+
               </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="text-value">12.124</div>
-                    <div>Lorem ipsum...</div>
-                    <div class="progress progress-xs my-2">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">Lorem ipsum dolor sit amet enim.</small>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="text-value">$98.111,00</div>
-                    <div>Lorem ipsum...</div>
-                    <div class="progress progress-xs my-2">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">Lorem ipsum dolor sit amet enim.</small>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="text-value">2 TB</div>
-                    <div>Lorem ipsum...</div>
-                    <div class="progress progress-xs my-2">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">Lorem ipsum dolor sit amet enim.</small>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-            </div>
-            <!-- /.row-->
-            <div class="row">
-              <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-primary">
-                  <div class="card-body">
-                    <div class="text-value">89.9%</div>
-                    <div>Lorem ipsum...</div>
-                    <div class="progress progress-white progress-xs my-2">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">Lorem ipsum dolor sit amet enim.</small>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-warning">
-                  <div class="card-body">
-                    <div class="text-value">12.124</div>
-                    <div>Lorem ipsum...</div>
-                    <div class="progress progress-white progress-xs my-2">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">Lorem ipsum dolor sit amet enim.</small>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-danger">
-                  <div class="card-body">
-                    <div class="text-value">$98.111,00</div>
-                    <div>Lorem ipsum...</div>
-                    <div class="progress progress-white progress-xs my-2">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">Lorem ipsum dolor sit amet enim.</small>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-info">
-                  <div class="card-body">
-                    <div class="text-value">2 TB</div>
-                    <div>Lorem ipsum...</div>
-                    <div class="progress progress-white progress-xs my-2">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small class="text-muted">Lorem ipsum dolor sit amet enim.</small>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-            </div>
-            <!-- /.row-->
-            <div class="row">
-              <div class="col-md-2 col-sm-4">
-                <div class="card">
-                  <div class="card-body text-center">
-                    <div class="text-muted small text-uppercase font-weight-bold">Title</div>
-                    <div class="text-value-lg py-3">1,123</div>
-                    <div class="chart-wrapper mx-auto" style="height:40px;width:80px">
-                      <canvas class="chart chart-bar" id="sparkline-chart-1" height="40" width="80"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-md-2 col-sm-4">
-                <div class="card">
-                  <div class="card-body text-center">
-                    <div class="text-muted small text-uppercase font-weight-bold">Title</div>
-                    <div class="text-value-lg py-3">1,123</div>
-                    <div class="chart-wrapper mx-auto" style="height:40px;width:80px">
-                      <canvas class="chart chart-bar" id="sparkline-chart-2" height="40" width="80"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-md-2 col-sm-4">
-                <div class="card">
-                  <div class="card-body text-center">
-                    <div class="text-muted small text-uppercase font-weight-bold">Title</div>
-                    <div class="text-value-lg py-3">1,123</div>
-                    <div class="chart-wrapper mx-auto" style="height:40px;width:80px">
-                      <canvas class="chart chart-bar" id="sparkline-chart-3" height="40" width="80"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-md-2 col-sm-4">
-                <div class="card">
-                  <div class="card-body text-center">
-                    <div class="text-muted small text-uppercase font-weight-bold">Title</div>
-                    <div class="text-value-lg py-3">1,123</div>
-                    <div class="chart-wrapper mx-auto" style="height:40px;width:80px">
-                      <canvas class="chart chart-line" id="sparkline-chart-4" height="40" width="100"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-md-2 col-sm-4">
-                <div class="card">
-                  <div class="card-body text-center">
-                    <div class="text-muted small text-uppercase font-weight-bold">Title</div>
-                    <div class="text-value-lg py-3">1,123</div>
-                    <div class="chart-wrapper mx-auto" style="height:40px;width:80px">
-                      <canvas class="chart chart-line" id="sparkline-chart-5" height="40" width="100"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-md-2 col-sm-4">
-                <div class="card">
-                  <div class="card-body text-center">
-                    <div class="text-muted small text-uppercase font-weight-bold">Title</div>
-                    <div class="text-value-lg py-3">1,123</div>
-                    <div class="chart-wrapper mx-auto" style="height:40px;width:80px">
-                      <canvas class="chart chart-line" id="sparkline-chart-6" height="40" width="100"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-            </div>
-            <!-- /.row-->
-            <div class="row">
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-3 d-flex align-items-center">
-                    <i class="fa fa-cogs bg-primary p-3 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-primary">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-3 d-flex align-items-center">
-                    <i class="fa fa-laptop bg-info p-3 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-info">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-3 d-flex align-items-center">
-                    <i class="fa fa-moon-o bg-warning p-3 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-warning">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-3 d-flex align-items-center">
-                    <i class="fa fa-bell bg-danger p-3 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-danger">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-3 d-flex align-items-center">
-                    <i class="fa fa-cogs bg-primary p-3 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-primary">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                  <div class="card-footer px-3 py-2">
-                    <a class="btn-block text-muted d-flex justify-content-between align-items-center" href="#">
-                      <span class="small font-weight-bold">View More</span>
-                      <i class="fa fa-angle-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-3 d-flex align-items-center">
-                    <i class="fa fa-laptop bg-info p-3 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-info">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                  <div class="card-footer px-3 py-2">
-                    <a class="btn-block text-muted d-flex justify-content-between align-items-center" href="#">
-                      <span class="small font-weight-bold">View More</span>
-                      <i class="fa fa-angle-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-3 d-flex align-items-center">
-                    <i class="fa fa-moon-o bg-warning p-3 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-warning">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                  <div class="card-footer px-3 py-2">
-                    <a class="btn-block text-muted d-flex justify-content-between align-items-center" href="#">
-                      <span class="small font-weight-bold">View More</span>
-                      <i class="fa fa-angle-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-3 d-flex align-items-center">
-                    <i class="fa fa-bell bg-danger p-3 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-danger">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                  <div class="card-footer px-3 py-2">
-                    <a class="btn-block text-muted d-flex justify-content-between align-items-center" href="#">
-                      <span class="small font-weight-bold">View More</span>
-                      <i class="fa fa-angle-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-            </div>
-            <!-- /.row-->
-            <div class="row">
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <i class="fa fa-cogs bg-primary p-4 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-primary">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <i class="fa fa-laptop bg-info p-4 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-info">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <i class="fa fa-moon-o bg-warning p-4 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-warning">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <i class="fa fa-bell bg-danger p-4 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-danger">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <i class="fa fa-cogs bg-primary p-4 px-5 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-primary">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <i class="fa fa-laptop bg-info p-4 px-5 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-info">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <i class="fa fa-moon-o bg-warning p-4 px-5 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-warning">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-6 col-lg-3">
-                <div class="card">
-                  <div class="card-body p-0 d-flex align-items-center">
-                    <i class="fa fa-bell bg-danger p-4 px-5 font-2xl mr-3"></i>
-                    <div>
-                      <div class="text-value-sm text-danger">$1.999,50</div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Income</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-            </div>
-            <!-- /.row-->
+
+            <!-- /.card-->
             <div class="row">
               <div class="col-sm-6 col-lg-3">
                 <div class="brand-card">
@@ -939,251 +562,7 @@
               <!-- /.col-->
             </div>
             <!-- /.row-->
-            <div class="card-group mb-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="h1 text-muted text-right mb-4">
-                    <i class="icon-people"></i>
-                  </div>
-                  <div class="text-value">87.500</div>
-                  <small class="text-muted text-uppercase font-weight-bold">Visitors</small>
-                  <div class="progress progress-xs mt-3 mb-0">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <div class="h1 text-muted text-right mb-4">
-                    <i class="icon-user-follow"></i>
-                  </div>
-                  <div class="text-value">385</div>
-                  <small class="text-muted text-uppercase font-weight-bold">New Clients</small>
-                  <div class="progress progress-xs mt-3 mb-0">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <div class="h1 text-muted text-right mb-4">
-                    <i class="icon-basket-loaded"></i>
-                  </div>
-                  <div class="text-value">1238</div>
-                  <small class="text-muted text-uppercase font-weight-bold">Products sold</small>
-                  <div class="progress progress-xs mt-3 mb-0">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <div class="h1 text-muted text-right mb-4">
-                    <i class="icon-pie-chart"></i>
-                  </div>
-                  <div class="text-value">28%</div>
-                  <small class="text-muted text-uppercase font-weight-bold">Returning Visitors</small>
-                  <div class="progress progress-xs mt-3 mb-0">
-                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <div class="h1 text-muted text-right mb-4">
-                    <i class="icon-speedometer"></i>
-                  </div>
-                  <div class="text-value">5:34:11</div>
-                  <small class="text-muted text-uppercase font-weight-bold">Avg. Time</small>
-                  <div class="progress progress-xs mt-3 mb-0">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6 col-md-2">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-people"></i>
-                    </div>
-                    <div class="text-value">87.500</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Visitors</small>
-                    <div class="progress progress-xs mt-3 mb-0">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-md-2">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-user-follow"></i>
-                    </div>
-                    <div class="text-value">385</div>
-                    <small class="text-muted text-uppercase font-weight-bold">New Clients</small>
-                    <div class="progress progress-xs mt-3 mb-0">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-md-2">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-basket-loaded"></i>
-                    </div>
-                    <div class="text-value">1238</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Products sold</small>
-                    <div class="progress progress-xs mt-3 mb-0">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-md-2">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-pie-chart"></i>
-                    </div>
-                    <div class="text-value">28%</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Returning Visitors</small>
-                    <div class="progress progress-xs mt-3 mb-0">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-md-2">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-speedometer"></i>
-                    </div>
-                    <div class="text-value">5:34:11</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Avg. Time</small>
-                    <div class="progress progress-xs mt-3 mb-0">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-md-2">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-speech"></i>
-                    </div>
-                    <div class="text-value">972</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Comments</small>
-                    <div class="progress progress-xs mt-3 mb-0">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-            </div>
-            <!-- /.row-->
-            <div class="row">
-              <div class="col-sm-6 col-md-2">
-                <div class="card text-white bg-info">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-people"></i>
-                    </div>
-                    <div class="text-value">87.500</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Visitors</small>
-                    <div class="progress progress-white progress-xs mt-3">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-md-2">
-                <div class="card text-white bg-success">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-user-follow"></i>
-                    </div>
-                    <div class="text-value">385</div>
-                    <small class="text-muted text-uppercase font-weight-bold">New Clients</small>
-                    <div class="progress progress-white progress-xs mt-3">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-md-2">
-                <div class="card text-white bg-warning">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-basket-loaded"></i>
-                    </div>
-                    <div class="text-value">1238</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Products sold</small>
-                    <div class="progress progress-white progress-xs mt-3">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-md-2">
-                <div class="card text-white bg-primary">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-pie-chart"></i>
-                    </div>
-                    <div class="text-value">28%</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Returning Visitors</small>
-                    <div class="progress progress-white progress-xs mt-3">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-md-2">
-                <div class="card text-white bg-danger">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-speedometer"></i>
-                    </div>
-                    <div class="text-value">5:34:11</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Avg. Time</small>
-                    <div class="progress progress-white progress-xs mt-3">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.col-->
-              <div class="col-sm-6 col-md-2">
-                <div class="card text-white bg-info">
-                  <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                      <i class="icon-speech"></i>
-                    </div>
-                    <div class="text-value">972</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Comments</small>
-                    <div class="progress progress-white progress-xs mt-3">
-                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
               <!-- /.col-->
             </div>
             <!-- /.row-->
@@ -1215,7 +594,7 @@
               <div class="list-group-item list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Today</div>
               <div class="list-group-item list-group-item-accent-warning list-group-item-divider">
                 <div class="avatar float-right">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{% static 'img/avatars/7.jpg'%}" alt="admin@bootstrapmaster.com">
                 </div>
                 <div>Meeting with
                   <strong>Lucas</strong>
@@ -1227,7 +606,7 @@
               </div>
               <div class="list-group-item list-group-item-accent-info">
                 <div class="avatar float-right">
-                  <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{% static 'img/avatars/4.jpg'%}" alt="admin@bootstrapmaster.com">
                 </div>
                 <div>Skype with
                   <strong>Megan</strong>
@@ -1248,19 +627,19 @@
                   <i class="icon-home"></i>  creativeLabs HQ</small>
                 <div class="avatars-stack mt-2">
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/2.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/3.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/4.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/5.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/6.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                 </div>
               </div>
@@ -1282,25 +661,25 @@
                   <i class="icon-home"></i>  creativeLabs HQ</small>
                 <div class="avatars-stack mt-2">
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/2.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/3.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/4.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/5.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/6.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/7.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/8.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{% static 'img/avatars/8.jpg'%}" alt="admin@bootstrapmaster.com">
                   </div>
                 </div>
               </div>
@@ -1310,7 +689,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{% static 'img/avatars/7.jpg'%}" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -1325,7 +704,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{% static 'img/avatars/3.jpg'%}" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -1340,7 +719,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{% static 'img/avatars/7.jpg'%}" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -1355,7 +734,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{% static 'img/avatars/7.jpg'%}" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -1370,7 +749,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{% static 'img/avatars/3.jpg'%}" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -1486,15 +865,30 @@
         <a href="https://coreui.io">CoreUI</a>
       </div>
     </footer>
+
     <!-- CoreUI and necessary plugins-->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="node_modules/pace-progress/pace.min.js"></script>
-    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-    <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
-    <script src="node_modules/chart.js/dist/Chart.min.js"></script>
-    <script src="node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    <script src="js/widgets.js"></script>
+
+    <script src="{% static 'jsT/jquery.min.js'%}"></script>
+
+    <script src="{% static 'jsT/popper.min.js'%}"></script>
+
+    <script src="{% static 'jsT/bootstrap.min.js'%}"></script>
+
+    <script src="{% static 'jsT/pace.min.js'%}"></script>
+
+    <script src="{% static 'jsT/perfect-scrollbar.min.js'%}"></script>
+
+    <script src="{% static 'jsT/coreui.min.js'%}"></script>
+    <!-- Plugins and scripts required by this view-->
+
+    <!--<script src="node_modules/chart.js/dist/Chart.min.js"></script>-->
+    <!--<script src="node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>-->
+    <!--<script src="js/main.js"></script>-->
+  <script>
+    $('#ui-view').ajaxLoad();
+    $(document).ajaxComplete(function() {
+      Pace.restart()
+    });
+  </script>
   </body>
 </html>

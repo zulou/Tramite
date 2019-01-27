@@ -6,7 +6,7 @@
 * Copyright (c) 2018 creativeLabs Łukasz Holeczek
 * Licensed under MIT (https://coreui.io/license)
 -->
-
+{% load static %}
 <html lang="en">
   <head>
     <base href="./">
@@ -18,13 +18,20 @@
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>CoreUI Free Bootstrap Admin Template</title>
     <!-- Icons-->
-    <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
-    <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
-    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+      <link href="{% static 'cssT/coreui-icons.min.css' %}" rel="stylesheet">
+
+      <link href="{% static 'cssT/flag-icon.min.css' %}" rel="stylesheet">
+
+      <link href="{% static 'cssT/font-awesome.min.css' %}" rel="stylesheet">
+
+      <link href="{% static 'cssT/simple-line-icons.css' %}" rel="stylesheet">
+
+
+
     <!-- Main styles for this application-->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+    <link href="{% static 'cssT/style.css' %}" rel="stylesheet">
+    <link href="{% static 'cssT/pace.min.css' %}" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     <script>
@@ -45,7 +52,9 @@
       <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="card-group">
-            <div class="card p-4">
+            <form class="card p-4" method="post">
+                {% csrf_token %}
+
               <div class="card-body">
                 <h1>Login</h1>
                 <p class="text-muted">Sign In to your account</p>
@@ -55,7 +64,8 @@
                       <i class="icon-user"></i>
                     </span>
                   </div>
-                  <input class="form-control" type="text" placeholder="Username">
+                  <input class="form-control" type="text" placeholder="Username" id="username" name="username">
+
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
@@ -63,37 +73,36 @@
                       <i class="icon-lock"></i>
                     </span>
                   </div>
-                  <input class="form-control" type="password" placeholder="Password">
+                  <input class="form-control" type="password" placeholder="Password" id="password" name="password">
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button class="btn btn-primary px-4" type="button">Login</button>
+                    <button class="btn btn-primary px-4" type="submit">Login</button>
                   </div>
                   <div class="col-6 text-right">
                     <button class="btn btn-link px-0" type="button">Forgot password?</button>
                   </div>
                 </div>
               </div>
+            </form>
             </div>
-            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
-              <div class="card-body text-center">
-                <div>
-                  <h2>Sign up</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                  <button class="btn btn-primary active mt-3" type="button">Register Now!</button>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
     </div>
     <!-- CoreUI and necessary plugins-->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="node_modules/pace-progress/pace.min.js"></script>
-    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-    <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+
+  <script src="{% static 'jsT/jquery.min.js' %}"></script>
+
+    <script src="{% static 'jsT/popper.min.js' %}"></script>
+
+    <script src="{% static 'jsT/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'jsT/pace.min.js' %}"></script>
+
+    <script src="{% static 'jsT/perfect-scrollbar.min.js' %}"></script>
+
+    <script src="{% static 'jsT/coreui.min.js' %}"></script>
   </body>
 </html>

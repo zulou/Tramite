@@ -22,7 +22,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/', include(routes)),
-    path('index/', views.index, name='index'),
+    #path('index/', views.index, name='index'),
+    #path('login/', views.login, name='login'),
+    path('dashboard/', views.base, name='dashboard'),
+    path('dashboardMp/', views.dashboard_mesa_partes, name='dashboard_mesa_partes'),
+    path('dashboardUsers/', views.dashboard_users, name='dashboard_users'),
+    path('accounts/', include('django.contrib.auth.urls')),  # new
 
 ]
+
 
