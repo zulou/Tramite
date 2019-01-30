@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b372f5c-7e7b-405f-bdde-404a979a8498" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Core/templatetags/user_extras.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tramite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tramite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tramite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tramite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dmp/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dmp/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dmp/expedientes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dmp/expedientes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dusers/expedientes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dusers/expedientes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/expedientes.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="6b372f5c-7e7b-405f-bdde-404a979a8498" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,8 +49,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/dmp/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="355" column="35" lean-forward="true" selection-start-line="355" selection-start-column="35" selection-end-line="355" selection-end-column="35" />
+            <state relative-caret-position="111">
+              <caret line="354" column="55" lean-forward="true" selection-start-line="354" selection-start-column="55" selection-end-line="354" selection-end-column="55" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -217,22 +202,6 @@
             <path>
               <item name="Tramite" type="b2602c69:ProjectViewProjectNode" />
               <item name="Tramite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tramite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tramite" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tramite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tramite" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tramite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tramite" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="dmp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -656,8 +625,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/dmp/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="355" column="35" lean-forward="true" selection-start-line="355" selection-start-column="35" selection-end-line="355" selection-end-column="35" />
+        <state relative-caret-position="111">
+          <caret line="354" column="55" lean-forward="true" selection-start-line="354" selection-start-column="55" selection-end-line="354" selection-end-column="55" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
