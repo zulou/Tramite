@@ -1,9 +1,95 @@
-{% extends 'base.html' %}
+{% extends 'dmp/base.html' %}
+{% load user_extras %}
 
 {% block content %}
 
     <div class="chart-wrapper maverick" style="height:300px;margin-top:40px;">
 
-
     </div>
+{% endblock %}
+
+
+{% block menu_top %}
+
+    {% if request.user|has_group:"mesa_partes" %}
+
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                <a class="nav-link" href="./">Dashboard</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:Core_tupa_changelist' %}">Tupa</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">reportes-Expediente</a>
+            </li>
+
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:index' %}">Settings</a>
+            </li>
+        </ul>
+
+    {% elif request.user|has_group:"usuario_oficia" %}
+
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                <a class="nav-link" href="./">Dashboard</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Expediente/recibido</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Expediente/enviado</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Reenvio/expediente</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Doc.Int.Env</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Doc.Int.Rec</a>
+            </li>
+
+
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:index' %}">Settings</a>
+            </li>
+        </ul>
+
+    {% else %}
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                <a class="nav-link" href="./">Dashboard</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:Core_office_changelist' %}">Oficinas</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:auth_user_changelist' %}">Usuarios</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:Core_person_changelist' %}">Personas</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:index' %}">Settings</a>
+            </li>
+        </ul>
+
+
+    {% endif %}
+
 {% endblock %}

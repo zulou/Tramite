@@ -20,11 +20,8 @@
     <!-- Icons-->
 
       <link href="{% static 'cssT/coreui-icons.min.css' %}" rel="stylesheet">
-
       <link href="{% static 'cssT/flag-icon.min.css' %}" rel="stylesheet">
-
       <link href="{% static 'cssT/font-awesome.min.css' %}" rel="stylesheet">
-
       <link href="{% static 'cssT/simple-line-icons.css' %}" rel="stylesheet">
 
 
@@ -69,7 +66,7 @@
           <a class="nav-link" href="#">Users</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link" href="#">Settings</a>
+          <a class="nav-link" href="{% url  'admin:index' %}">Settings</a>
         </li>
       </ul>
       <ul class="nav navbar-nav ml-auto">

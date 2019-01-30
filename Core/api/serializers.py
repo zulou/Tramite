@@ -40,10 +40,11 @@ class Document_identityserializer(serializers.HyperlinkedModelSerializer):
         fields = ('doc_des',)
 
 class Personserializer(serializers.HyperlinkedModelSerializer):
+    user= serializers.PrimaryKeyRelatedField(many=False, queryset=models.User.objects.all())
     id_doc = serializers.PrimaryKeyRelatedField(many=False,queryset=models.Document_identity.objects.all())
     class Meta:
         model = models.Person
-        fields = ('id_doc','per_name','per_lastname','per_doc','per_address','per_cellphone','per_type')
+        fields = ('user','id_doc','per_name','per_lastname','per_doc','per_address','per_cellphone','per_type')
 
 class Documentserializer(serializers.HyperlinkedModelSerializer):
     id_type_document = serializers.PrimaryKeyRelatedField(many=False,queryset=models.Type_document.objects.all())

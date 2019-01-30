@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -41,6 +42,7 @@ class Document_identity(models.Model):
         return(self.doc_des)
 
 class Person(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
     id_doc = models.ForeignKey(Document_identity, on_delete=models.CASCADE, related_name="person_document_identity")
     per_name = models.CharField(max_length=12, null=False)
     per_lastname = models.CharField(max_length=12, null=False)
@@ -49,7 +51,7 @@ class Person(models.Model):
     per_cellphone = models.CharField(max_length=12, null=False)
     per_type = models.CharField(max_length=12, null=False)
     def __str__(self):
-        return(self.id_doc+" "+self.per_name)
+        return(str(self.id_doc)+" "+self.per_name)
 
 
 
