@@ -3,6 +3,19 @@ from . import models
 
 
 # Register your models here.
+
+class DepartamentoAdmin(admin.ModelAdmin):
+    search_fields = ['departamento']
+    list_display = ('departamento',)
+
+class ProvinciaAdmin(admin.ModelAdmin):
+    search_fields = ['id_departamento','provincia']
+    list_display = ('id_departamento','provincia',)
+
+class DistritoAdmin(admin.ModelAdmin):
+    search_fields = ['id_provincia','distrito']
+    list_display = ('id_provincia','distrito',)
+
 class OfficeAdmin(admin.ModelAdmin):
     search_fields = ['ofi_des']
     list_display = ('ofi_des',)
@@ -45,3 +58,7 @@ admin.site.register(models.Movements,MovementsAdmin)
 admin.site.register(models.Document_identity,Document_identityAdmin)
 admin.site.register(models.Person,PersonAdmin)
 admin.site.register(models.Document,DocumentAdmin)
+
+admin.site.register(models.Departamento,DepartamentoAdmin)
+admin.site.register(models.Provincia,ProvinciaAdmin)
+admin.site.register(models.Distrito,DistritoAdmin)

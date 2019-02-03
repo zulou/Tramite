@@ -12,6 +12,9 @@ router.register(r'Movements',resources.MovementsViewset,'MovementsViewset')
 router.register(r'Document_identity',resources.Document_identityViewset,'Document_identityViewset')
 router.register(r'Person',resources.PersonViewset,'PersonViewset')
 router.register(r'Document',resources.DocumentViewset,'DocumentViewset')
+router.register(r'Departamento',resources.DepartamentoViewset,'DepartamentoViewset')
+router.register(r'Provincia',resources.ProvinciaViewset,'ProvinciaViewset')
+router.register(r'Distrito',resources.DistritoViewset,'DistritoViewset')
 
 
 urlpatterns = [

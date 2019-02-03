@@ -14,8 +14,11 @@ def login(request):
 
 @login_required(redirect_field_name='my_redirect_field')
 def dashboard_mesa_partes(request):
+    return render(request, 'dmp/dashboard.html')
+
+def mesa_partes_expediente(request):
     return render(request, 'dmp/expedientes.html')
 
 @login_required(redirect_field_name='my_redirect_field')
 def dashboard_users(request):
-    return render(request, 'dusers/expedientes.html')
+    return render(request, 'dusers/dashboard.html')

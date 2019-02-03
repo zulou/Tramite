@@ -36,3 +36,15 @@ class DocumentViewset(viewsets.ModelViewSet):
     queryset = models.Document.objects.all()
     serializer_class = serializers.Documentserializer
 
+class DepartamentoViewset(viewsets.ModelViewSet):
+    queryset = models.Departamento.objects.all()
+    serializer_class = serializers.Departamentoserializer
+
+class ProvinciaViewset(viewsets.ModelViewSet):
+    queryset = models.Provincia.objects.all()
+    serializer_class = serializers.Provinciaserializer
+
+class DistritoViewset(viewsets.ModelViewSet):
+    queryset = models.Distrito.objects.all()
+    serializer_class = serializers.Distritoserializer
+

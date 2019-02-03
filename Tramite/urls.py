@@ -28,6 +28,8 @@ urlpatterns = [
     #path('dashboardUsers/', views.dashboard_users, name='dashboard_users'),
 
     path('dashboardMp/', views.dashboard_mesa_partes, name='dashboard_mesa_partes'),
+    path('expedientesMp/', views.mesa_partes_expediente, name='expediente_mesa_partes'),
+
 
     path('accounts/', include('django.contrib.auth.urls')),  # new
 

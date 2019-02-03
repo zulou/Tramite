@@ -29,7 +29,6 @@
 
     <link href="{% static 'cssT/simple-line-icons.css' %}" rel="stylesheet">
 
-
     <!-- Main styles for this application-->
     <link href="{% static 'cssT/style.css' %}" rel="stylesheet">
     <link href="{% static 'cssT/pace.min.css' %}" rel="stylesheet">
@@ -64,8 +63,88 @@
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
     </button>
-    {% block menu_top %}
-    {% endblock %}
+
+          {% if request.user|has_group:"mesa_partes" %}
+
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'dashboard_mesa_partes' %}">Dashboard</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:Core_tupa_changelist' %}">Tupa</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">reportes-Expediente</a>
+            </li>
+
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:index' %}">Settings</a>
+            </li>
+        </ul>
+
+    {% elif request.user|has_group:"usuario_oficia" %}
+
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'dashboard_mesa_partes' %}">Dashboard</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Expediente/recibido</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Expediente/enviado</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Reenvio/expediente</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Doc.Int.Env</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Doc.Int.Rec</a>
+            </li>
+
+
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:index' %}">Settings</a>
+            </li>
+        </ul>
+
+    {% else %}
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'dashboard_mesa_partes' %}">Dashboard</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:Core_office_changelist' %}">Oficinas</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:auth_user_changelist' %}">Usuarios</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:Core_person_changelist' %}">Personas</a>
+            </li>
+
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{% url 'admin:index' %}">Settings</a>
+            </li>
+        </ul>
+
+
+    {% endif %}
+
 
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item d-md-down-none">
@@ -139,194 +218,73 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 </header>
-<div class="app-body">
+    {% if request.user|has_group:"mesa_partes" %}
+
+      <div class="app-body">
     <div class="sidebar">
         <nav class="sidebar-nav">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{% url 'dashboard_mesa_partes' %}">
                         <i class="nav-icon icon-speedometer"></i> Dashboard
                         <span class="badge badge-primary">NEW</span>
                     </a>
                 </li>
-                <li class="nav-title">Theme</li>
+                <li class="nav-title">Expedientes</li>
                 <li class="nav-item">
                     <a class="nav-link" href="colors.html">
-                        <i class="nav-icon icon-drop"></i> Colors</a>
+                        <i class="nav-icon icon-drop"></i> Registro</a>
+                    <a class="nav-link" href="colors.html">
+                        <i class="nav-icon icon-drop"></i> Recibidos</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="typography.html">
-                        <i class="nav-icon icon-pencil"></i> Typography</a>
-                </li>
-                <li class="nav-title">Components</li>
+
+
+                <li class="nav-title">Reportes</li>
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-puzzle"></i> Base</a>
+                        <i class="nav-icon icon-puzzle"></i> Expedientes</a>
                     <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/breadcrumb.html">
-                                <i class="nav-icon icon-puzzle"></i> Breadcrumb</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/cards.html">
-                                <i class="nav-icon icon-puzzle"></i> Cards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/carousel.html">
-                                <i class="nav-icon icon-puzzle"></i> Carousel</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/collapse.html">
-                                <i class="nav-icon icon-puzzle"></i> Collapse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/forms.html">
-                                <i class="nav-icon icon-puzzle"></i> Forms</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/jumbotron.html">
-                                <i class="nav-icon icon-puzzle"></i> Jumbotron</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/list-group.html">
-                                <i class="nav-icon icon-puzzle"></i> List group</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/navs.html">
-                                <i class="nav-icon icon-puzzle"></i> Navs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/pagination.html">
-                                <i class="nav-icon icon-puzzle"></i> Pagination</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/popovers.html">
-                                <i class="nav-icon icon-puzzle"></i> Popovers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/progress.html">
-                                <i class="nav-icon icon-puzzle"></i> Progress</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/scrollspy.html">
-                                <i class="nav-icon icon-puzzle"></i> Scrollspy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/switches.html">
-                                <i class="nav-icon icon-puzzle"></i> Switches</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="base/tables.html">
-                                <i class="nav-icon icon-puzzle"></i> Tables</a>
-                        </li>
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="base/tabs.html">
-                                <i class="nav-icon icon-puzzle"></i> Tabs</a>
+                                <i class="nav-icon icon-puzzle"></i> Recibidos</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="base/tooltips.html">
-                                <i class="nav-icon icon-puzzle"></i> Tooltips</a>
+                            <a class="nav-link" href="base/tabs.html">
+                                <i class="nav-icon icon-puzzle"></i> Enviados</a>
                         </li>
+
                     </ul>
                 </li>
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-cursor"></i> Buttons</a>
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link" href="buttons/buttons.html">
-                                <i class="nav-icon icon-cursor"></i> Buttons</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="buttons/button-group.html">
-                                <i class="nav-icon icon-cursor"></i> Buttons Group</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="buttons/dropdowns.html">
-                                <i class="nav-icon icon-cursor"></i> Dropdowns</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="buttons/brand-buttons.html">
-                                <i class="nav-icon icon-cursor"></i> Brand Buttons</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
-                        <i class="nav-icon icon-pie-chart"></i> Charts</a>
-                </li>
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-star"></i> Icons</a>
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link" href="icons/coreui-icons.html">
-                                <i class="nav-icon icon-star"></i> CoreUI Icons
-                                <span class="badge badge-success">NEW</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="icons/flags.html">
-                                <i class="nav-icon icon-star"></i> Flags</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="icons/font-awesome.html">
-                                <i class="nav-icon icon-star"></i> Font Awesome
-                                <span class="badge badge-secondary">4.7</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="icons/simple-line-icons.html">
-                                <i class="nav-icon icon-star"></i> Simple Line Icons</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-bell"></i> Notifications</a>
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link" href="notifications/alerts.html">
-                                <i class="nav-icon icon-bell"></i> Alerts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="notifications/badge.html">
-                                <i class="nav-icon icon-bell"></i> Badge</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="notifications/modals.html">
-                                <i class="nav-icon icon-bell"></i> Modals</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="widgets.html">
-                        <i class="nav-icon icon-calculator"></i> Widgets
-                        <span class="badge badge-primary">NEW</span>
-                    </a>
-                </li>
+
+
+
+
                 <li class="divider"></li>
-                <li class="nav-title">Extras</li>
+                <li class="nav-title">CONFIGURACION</li>
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-star"></i> Pages</a>
+                        <i class="nav-icon icon-star"></i>Sistema</a>
                     <ul class="nav-dropdown-items">
+
                         <li class="nav-item">
-                            <a class="nav-link" href="registration/login.html" target="_top">
-                                <i class="nav-icon icon-star"></i> Login</a>
+                            <a class="nav-link" href="{% url 'admin:Core_person_changelist' %}" target="_top">
+                                <i class="nav-icon icon-star"></i> Personas</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="register.html" target="_top">
-                                <i class="nav-icon icon-star"></i> Register</a>
+                            <a class="nav-link" href="{% url 'admin:Core_tupa_changelist' %}" target="_top">
+                                <i class="nav-icon icon-star"></i> Tupa</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="404.html" target="_top">
-                                <i class="nav-icon icon-star"></i> Error 404</a>
+                            <a class="nav-link" href="{% url 'admin:index' %}" target="_top">
+                                <i class="nav-icon icon-star"></i> General</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="500.html" target="_top">
-                                <i class="nav-icon icon-star"></i> Error 500</a>
-                        </li>
+
+
                     </ul>
                 </li>
                 <li class="nav-item mt-auto">
@@ -335,14 +293,186 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
-                        <i class="nav-icon icon-layers"></i> Try CoreUI
-                        <strong>PRO</strong>
+                        <i class="nav-icon icon-layers"></i>
+                        <strong>LOGOUT</strong>
                     </a>
                 </li>
             </ul>
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
     </div>
+
+    {% elif request.user|has_group:"usuario_oficia" %}
+
+<div class="app-body">
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dashboard_mesa_partes' %}">
+                        <i class="nav-icon icon-speedometer"></i> Dashboard
+                        <span class="badge badge-primary">NEW</span>
+                    </a>
+                </li>
+                <li class="nav-title">Expedientes</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="colors.html">
+                        <i class="nav-icon icon-drop"></i> Registro</a>
+                    <a class="nav-link" href="colors.html">
+                        <i class="nav-icon icon-drop"></i> Recibidos</a>
+                </li>
+
+
+                <li class="nav-title">Reportes</li>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
+                        <i class="nav-icon icon-puzzle"></i> Expedientes</a>
+                    <ul class="nav-dropdown-items">
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="base/tabs.html">
+                                <i class="nav-icon icon-puzzle"></i> Recibidos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="base/tabs.html">
+                                <i class="nav-icon icon-puzzle"></i> Enviados</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="divider"></li>
+                <li class="nav-title">CONFIGURACION</li>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
+                        <i class="nav-icon icon-star"></i>Sistema</a>
+                    <ul class="nav-dropdown-items">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="registration/login.html" target="_top">
+                                <i class="nav-icon icon-star"></i> Personas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="registration/login.html" target="_top">
+                                <i class="nav-icon icon-star"></i> Oficinas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin:index' %}" target="_top">
+                                <i class="nav-icon icon-star"></i> General</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li class="nav-item mt-auto">
+                    <a class="nav-link nav-link-success" href="https://coreui.io" target="_top">
+                        <i class="nav-icon icon-cloud-download"></i> Download CoreUI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
+                        <i class="nav-icon icon-layers"></i>
+                        <strong>LOGOUT</strong>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    </div>
+
+    {% else %}
+
+<div class="app-body">
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dashboard_mesa_partes' %}">
+                        <i class="nav-icon icon-speedometer"></i> Dashboard
+                        <span class="badge badge-primary">NEW</span>
+                    </a>
+                </li>
+                <li class="nav-title">Expedientes</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="colors.html">
+                        <i class="nav-icon icon-drop"></i> Registro</a>
+                    <a class="nav-link" href="colors.html">
+                        <i class="nav-icon icon-drop"></i> Recibidos</a>
+                </li>
+
+
+                <li class="nav-title">Reportes</li>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
+                        <i class="nav-icon icon-puzzle"></i> Expedientes</a>
+                    <ul class="nav-dropdown-items">
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="base/tabs.html">
+                                <i class="nav-icon icon-puzzle"></i> Recibidos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="base/tabs.html">
+                                <i class="nav-icon icon-puzzle"></i> Enviados</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li class="divider"></li>
+                <li class="nav-title">CONFIGURACION</li>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
+                        <i class="nav-icon icon-star"></i>Sistema</a>
+                    <ul class="nav-dropdown-items">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin:Core_person_changelist' %}" target="_top">
+                                <i class="nav-icon icon-star"></i> Personas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin:Core_office_changelist' %}" target="_top">
+                                <i class="nav-icon icon-star"></i> Oficinas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin:auth_user_changelist' %}" target="_top">
+                                <i class="nav-icon icon-star"></i> Usuarios</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin:index' %}" target="_top">
+                                <i class="nav-icon icon-star"></i> General</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li class="nav-item mt-auto">
+                    <a class="nav-link nav-link-success" href="https://coreui.io" target="_top">
+                        <i class="nav-icon icon-cloud-download"></i> Download CoreUI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
+                        <i class="nav-icon icon-layers"></i>
+                        <strong>LOGOUT</strong>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    </div>
+
+    {% endif %}
     <main class="main">
         <!-- Breadcrumb-->
         <ol class="breadcrumb">
@@ -355,7 +485,7 @@
             <li class="breadcrumb-menu d-md-down-none">
                 <div class="btn-group" role="group" aria-label="Button group">
 
-                    <a class="btn" href="./">
+                    <a class="btn" href="{% url 'dashboard_mesa_partes' %}">
                         <i class="icon-graph"></i>  
                         {% if user.is_authenticated %}
                             Bienvenido, {{ user.get_username }}
@@ -369,92 +499,10 @@
         </ol>
         <div class="container-fluid">
             <div class="animated fadeIn">
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card text-white bg-primary">
-                            <div class="card-body pb-0">
-                                <div class="btn-group float-right">
-                                    <button class="btn btn-transparent dropdown-toggle p-0" type="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="icon-settings"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                                <div class="text-value">9.823</div>
-                                <div>Members online</div>
-                            </div>
-                            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
-                                <canvas class="chart" id="card-chart1" height="70"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card text-white bg-info">
-                            <div class="card-body pb-0">
-                                <button class="btn btn-transparent p-0 float-right" type="button">
-                                    <i class="icon-location-pin"></i>
-                                </button>
-                                <div class="text-value">9.823</div>
-                                <div>Members online</div>
-                            </div>
-                            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
-                                <canvas class="chart" id="card-chart2" height="70"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card text-white bg-warning">
-                            <div class="card-body pb-0">
-                                <div class="btn-group float-right">
-                                    <button class="btn btn-transparent dropdown-toggle p-0" type="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="icon-settings"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                                <div class="text-value">9.823</div>
-                                <div>Members online</div>
-                            </div>
-                            <div class="chart-wrapper mt-3" style="height:70px;">
-                                <canvas class="chart" id="card-chart3" height="70"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card text-white bg-danger">
-                            <div class="card-body pb-0">
-                                <div class="btn-group float-right">
-                                    <button class="btn btn-transparent dropdown-toggle p-0" type="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="icon-settings"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                                <div class="text-value">9.823</div>
-                                <div>Members online</div>
-                            </div>
-                            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
-                                <canvas class="chart" id="card-chart4" height="70"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-->
-                </div>
+            {% block dashboard %}
+
+            {% endblock %}
+
                 <!-- /.row-->
                 <div class="card">
                     <div class="card-body">
@@ -922,6 +970,7 @@
 
 <!-- CoreUI and necessary plugins-->
 
+
 <script src="{% static 'jsT/jquery.min.js' %}"></script>
 
 <script src="{% static 'jsT/popper.min.js' %}"></script>
@@ -933,6 +982,10 @@
 <script src="{% static 'jsT/perfect-scrollbar.min.js' %}"></script>
 
 <script src="{% static 'jsT/coreui.min.js' %}"></script>
+
+
+{% block scripts %}
+{% endblock %}
 <!-- Plugins and scripts required by this view-->
 
 <!--<script src="node_modules/chart.js/dist/Chart.min.js"></script>-->

@@ -3,8 +3,27 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
+class Departamento(models.Model):
+    departamento = models.CharField(max_length=12, null=False)
+    def __str__(self):
+        return(self.departamento)
+
+class Provincia(models.Model):
+    id_departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE, related_name="provincia_departamento")
+    provincia = models.CharField(max_length=20, null=False)
+    def __str__(self):
+        return(self.provincia)
+
+
+class Distrito(models.Model):
+    id_provincia=models.ForeignKey(Provincia, on_delete=models.CASCADE, related_name="tupa_office_begin")
+    distrito = models.CharField(max_length=30, null=False)
+    def __str__(self):
+        return(self.distrito)
+
 class Office(models.Model):
-    ofi_des = models.CharField(max_length=12, null=False)
+    ofi_des = models.CharField(max_length=20, null=False)
     def __str__(self):
         return(self.ofi_des)
 
