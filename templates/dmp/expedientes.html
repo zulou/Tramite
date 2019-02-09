@@ -2,6 +2,8 @@
 {% load user_extras %}
 {% load static %}
 
+
+
 {% block content %}
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -15,25 +17,25 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="registro_persona">
 
-
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">Nombres</label>
-                                    <input class="form-control" id="doc_tupa" type="text" placeholder="Nombres">
+                                    <input class="form-control" id="per_name" name="per_name" type="text"
+                                           placeholder="Nombres">
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">Apellidos</label>
-                                    <input class="form-control" id="id_tupa" type="text" placeholder="Apellidos">
+                                    <input class="form-control" id="per_lastname" name="per_lastname" type="text"
+                                           placeholder="Apellidos">
                                 </div>
                             </div>
-
-
 
 
                         </div>
@@ -42,9 +44,9 @@
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="ccmonth">Tipo/Doc</label>
-                                    <select class="form-control" id="ccmonth">
-                                        <option>1</option>
-                                        <option>2</option>
+                                    <select class="form-control" id="id_doc" name="id_doc" required>
+                                        <option value="">seleccionar</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -52,16 +54,16 @@
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="name">Numero</label>
-                                    <input class="form-control" id="doc_number" type="text" placeholder="Numero">
+                                    <input class="form-control" id="per_doc" name="per_doc" type="text"
+                                           placeholder="Numero">
                                 </div>
                             </div>
 
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="name">Departamento</label>
-                                    <select class="form-control" id="id_departamento">
-                                        <option>1</option>
-                                        <option>2</option>
+                                    <select class="form-control" id="id_departamento" name="id_departamento" required>
+                                        <option value="">Seleccionar</option>
                                     </select>
                                 </div>
                             </div>
@@ -69,9 +71,9 @@
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="name">Provincia</label>
-                                    <select class="form-control" id="id_provincia">
-                                        <option>1</option>
-                                        <option>2</option>
+                                    <select class="form-control" id="id_provincia" name="id_provincia" required>
+                                        <option value="">Seleccionar</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -79,9 +81,8 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="name">Distrito</label>
-                                    <select class="form-control" id="id_distrito">
-                                        <option>1</option>
-                                        <option>2</option>
+                                    <select class="form-control" id="id_distrito" name="id_distrito" required>
+                                        <option value="">Seleccionar</option>
                                     </select>
                                 </div>
                             </div>
@@ -92,31 +93,30 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="name">Celular</label>
-                                    <input class="form-control" id="doc_tupa" type="text" placeholder="Asunto">
+                                    <input class="form-control" id="per_cellphone" name="per_cellphone" type="text"
+                                           placeholder="Numero de Celular">
                                 </div>
                             </div>
 
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="name">Tipo</label>
-                                    <select class="form-control" id="ccmonth">
-                                        <option>1</option>
-                                        <option>2</option>
+                                    <label for="name">Tipo/persona</label>
+                                    <select class="form-control" id="per_type" name="per_type">
+                                        <option value="0">Persona Natural</option>
+                                        <option value="1">Persona Juridica</option>
                                     </select>
                                 </div>
                             </div>
 
 
-
-
                         </div>
-
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" id="registrar_persona" class="btn btn-primary">Registrar</button>
+                    <button type="submit" id="btn_registrar" class="btn btn-primary">Registrar</button>
                 </div>
+                </form>
+
             </div>
         </div>
     </div>
@@ -126,90 +126,124 @@
                 <strong>Registro de Expedientes</strong>
 
 
-                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal"
+                <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                        data-target="#exampleModal"
                         data-whatever="@fat">
                     Registro de Personas
                 </button>
             </div>
             <div class="card-body">
+                <form id="form_registro_expediente" enctype="multipart/form-data">
 
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label for="ccmonth">Documento</label>
-                            <select class="form-control" id="ccmonth">
-                                <option>1</option>
-                                <option>2</option>
-                            </select>
+                {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="ccmonth">Documento</label>
+                                <select class="form-control" id="id_type_document">
+                                    <option>Seleccionar</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="name">Numero</label>
+                                <input class="form-control" id="doc_number" type="text" placeholder="Numero">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="name">Folios</label>
+                                <input class="form-control" id="doc_pages" type="text" placeholder="Folios">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="name">Dni</label>
+                                <input class="form-control" id="per_dni" type="text" placeholder="Dni">
+                                <input class="form-control" id="id_person" type="hidden">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="name">Administrado</label>
+                                <input class="form-control" id="id_nombre" type="text" placeholder="Administrado">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="name">Asunto</label>
+                                <input class="form-control" id="doc_tupa" type="text" placeholder="Asunto">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="name">Tupa</label>
+                                <input class="form-control" id="id_tupa" type="hidden" placeholder="Enter your name">
+                                <input class="form-control" id="id_tupa_description" type="text"
+                                       placeholder="Enter your name">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="name">Oficina Destino</label>
+                                <input class="form-control" id="id_nombre_destino" type="text"
+                                       placeholder="Enter your name">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="id_file_expediente" lang="es">
+                                    <label class="custom-file-label" for="id_file_expediente">Seleccionar
+                                        Archivo</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label for="name">Numero</label>
-                            <input class="form-control" id="doc_number" type="text" placeholder="Numero">
-                        </div>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label for="name">Folios</label>
-                            <input class="form-control" id="doc_pages" type="text" placeholder="Folios">
-                        </div>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label for="name">Dni</label>
-                            <input class="form-control" id="Person_id" type="text" placeholder="Dni">
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="name">Administrado</label>
-                            <input class="form-control" id="id_person" type="text" placeholder="Administrado">
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="name">Asunto</label>
-                            <input class="form-control" id="doc_tupa" type="text" placeholder="Asunto">
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="name">Tupa</label>
-                            <input class="form-control" id="id_tupa" type="text" placeholder="Enter your name">
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="name">TrabajadorDestino</label>
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <!--<label for="ccmonth">Documento</label> -->
+                                <select class="form-control" id="doc_type">
+                                    <option >Seleccionar Tipo de Documento</option>
+                                    <option value="1">Documento Externo</option>
+                                    <option value="2">Documento Interno</option>
+                                    <option value="3">Proveidos(documento para enviar otros documentos)</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
 
-                </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <label for="ccnumber">Observaciones:</label>
+                                <button type="button" id="btn_registrar_expediente"
+                                        class="btn btn-primary btn-lg btn-block">Registrar Expediente
+                                </button>
 
-                            <input class="form-control" id="ccnumber" type="text" placeholder="">
+                            </div>
                         </div>
                     </div>
-                </div>
-
-
+                </form>
             </div>
         </div>
 
@@ -217,5 +251,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{% static 'jsT/expedienteAdm.js' %}"></script>
+    <script src="{% static 'jsT/expedienteAdm.js' %}"></script>
 {% endblock %}

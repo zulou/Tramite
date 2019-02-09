@@ -41,8 +41,8 @@ class Document_identityAdmin(admin.ModelAdmin):
     list_display = ('doc_des',)
 
 class PersonAdmin(admin.ModelAdmin):
-    search_fields = ['id_doc','per_name','per_lastname','per_doc','per_address','per_cellphone','per_type']
-    list_display = ('id_doc','per_name','per_lastname','per_doc','per_address','per_cellphone','per_type')
+    search_fields = ['id_doc','per_name','per_lastname','per_doc','per_cellphone','per_type']
+    list_display = ('id_doc','per_name','per_lastname','per_doc','per_cellphone','per_type')
 
 class DocumentAdmin(admin.ModelAdmin):
     search_fields = ['id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type']

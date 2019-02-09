@@ -29,9 +29,19 @@ urlpatterns = [
 
     path('dashboardMp/', views.dashboard_mesa_partes, name='dashboard_mesa_partes'),
     path('expedientesMp/', views.mesa_partes_expediente, name='expediente_mesa_partes'),
+    path('accounts/', include('django.contrib.auth.urls')),
 
+    path('get_provincias/<id>/', views.get_provincias, name='get_provincias'),
+    path('get_departamentos/', views.get_departamentos, name='get_departamentos'),
+    path('get_distritos/<id>/', views.get_distritos, name='get_distritos'),
+    path('get_distritos/<id>/', views.get_distritos, name='get_distritos'),
+    path('get_last_person/', views.get_last_insert_person, name='get_last_person'),
+    path('get_dni_autocomplete/<dni>/', views.get_dni_autocomplete, name='get_dni_autocomplete'),
+    path('get_person_dni/<dni>/', views.get_person_dni, name='get_person_dni'),
+    path('get_tupa_autocomplete/<tupa>/', views.get_tupa_autocomplete, name='get_tupa_autocomplete'),
+    path('register_attachment/', views.register_attachment, name='register_attachment'),
+    path('get_last_document/', views.get_last_document, name='get_last_document'),
 
-    path('accounts/', include('django.contrib.auth.urls')),  # new
 
 ]
 
