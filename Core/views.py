@@ -84,6 +84,17 @@ def get_last_document(request):
     latest_id= models.Document.objects.latest('id')
     return JsonResponse({'datos': {'id':latest_id.id}})
 
+def get_last_document_movement(request):
+    latest_id= models.Document.objects.latest('id')
+    id_tup=models.Document.objects.values('id','id_tupa','id_type_document').filter(id=latest_id.id)
+    #tupa = models.Tupa.objects.filter(id=latest_id.id)
+    datos_tupa=models.Tupa.objects.filter(id=id_tup[0]['id_tupa']).values('id','id_ofi_begin','id_ofi_end')
+    obj=models.Movements(mov_order=0,id_doc=latest_id,id_attachments=latest_id.id,id_ofi_begin=datos_tupa[0]['id_ofi_begin'],id_ofi_end=datos_tupa[0]['id_ofi_end'],id_doc_sender=id_tup[0]['id_tupa'],move_recibed=1)
+    obj.save()
+    return JsonResponse({'datos_document': list(id_tup), 'datos_tupa': list(datos_tupa)})
+
+
+
 #@csrf_exempt
 @login_required(redirect_field_name='my_redirect_field')
 def register_attachment(request):
@@ -98,3 +109,9 @@ def register_attachment(request):
             #fs = FileSystemStorage()
             filename = fs.save(str(path+".pdf"), file)
     return HttpResponse("Success")
+
+@login_required(redirect_field_name='my_redirect_field')
+def enviadosMp(request):
+    documentos = models.Document.objects.all()
+    data = {'documentos':documentos}
+    return render(request, 'dmp/enviados.html', data)

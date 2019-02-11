@@ -41,6 +41,9 @@ urlpatterns = [
     path('get_tupa_autocomplete/<tupa>/', views.get_tupa_autocomplete, name='get_tupa_autocomplete'),
     path('register_attachment/', views.register_attachment, name='register_attachment'),
     path('get_last_document/', views.get_last_document, name='get_last_document'),
+    path('get_last_document_movement/', views.get_last_document_movement, name='get_last_document_movement'),
+
+    path('enviadosMp/', views.enviadosMp, name='expedientes_enviados'),
 
 
 ]

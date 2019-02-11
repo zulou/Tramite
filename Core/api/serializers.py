@@ -40,19 +40,6 @@ class Type_documentserializer(serializers.HyperlinkedModelSerializer):
         model = models.Type_document
         fields = ('id','doc_des')
 
-
-class Attachmentsserializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = models.Attachments
-        fields = ('id','att_path',)
-
-
-class Movementsserializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = models.Movements
-        fields = ('id','mov_order', 'id_attachments', 'id_ofi_begin', 'id_ofi_end', 'id_doc_sender', 'move_recibed')
-
-
 class Document_identityserializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Document_identity
@@ -81,3 +68,16 @@ class Documentserializer(serializers.HyperlinkedModelSerializer):
         fields = ('id',
             'id_type_document', 'id_person', 'id_tupa', 'doc_number', 'doc_exp_number', 'doc_des', 'doc_pages',
             'doc_type')
+
+class Attachmentsserializer(serializers.HyperlinkedModelSerializer):
+    id_doc = serializers.PrimaryKeyRelatedField(many=False, queryset=models.Document.objects.all())
+    class Meta:
+        model = models.Attachments
+        fields = ('id','id_doc','att_path',)
+
+
+class Movementsserializer(serializers.HyperlinkedModelSerializer):
+    id_doc = serializers.PrimaryKeyRelatedField(many=False, queryset=models.Document.objects.all())
+    class Meta:
+        model = models.Movements
+        fields = ('id','id_doc','mov_order', 'id_attachments', 'id_ofi_begin', 'id_ofi_end', 'id_doc_sender', 'move_recibed')

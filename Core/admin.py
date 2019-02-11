@@ -28,10 +28,6 @@ class Type_documentAdmin(admin.ModelAdmin):
     search_fields = ['doc_des']
     list_display = ('doc_des',)
 
-class AttachmentsAdmin(admin.ModelAdmin):
-    search_fields = ['att_path']
-    list_display = ('att_path',)
-
 class MovementsAdmin(admin.ModelAdmin):
     search_fields = ['mov_order','id_attachments','id_ofi_begin','id_ofi_end','id_doc_sender','move_recibed']
     list_display = ('mov_order','id_attachments','id_ofi_begin','id_ofi_end','id_doc_sender','move_recibed')
@@ -47,6 +43,10 @@ class PersonAdmin(admin.ModelAdmin):
 class DocumentAdmin(admin.ModelAdmin):
     search_fields = ['id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type']
     list_display = ('id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type')
+
+class AttachmentsAdmin(admin.ModelAdmin):
+    search_fields = ['id_doc','att_path']
+    list_display = ('id_doc','att_path')
 
 
 

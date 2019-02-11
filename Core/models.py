@@ -43,11 +43,6 @@ class Type_document(models.Model):
     def __str__(self):
         return(self.doc_des)
 
-class Attachments(models.Model):
-    att_path= models.CharField(max_length=20, null=False)
-    def __str__(self):
-        return(self.att_path)
-
 class Movements(models.Model):
     mov_order = models.IntegerField( null=False)
     id_attachments = models.IntegerField( null=False)
@@ -55,6 +50,8 @@ class Movements(models.Model):
     id_ofi_end = models.IntegerField( null=False)
     id_doc_sender = models.IntegerField( null=False)
     move_recibed = models.IntegerField( null=False)
+
+
 
 
 class Document_identity(models.Model):
@@ -99,3 +96,20 @@ class Document (models.Model):
 
             self.doc_exp_number=qs.doc_exp_number+1
         super(Document,self).save()
+
+
+class Attachments(models.Model):
+    id_doc = models.ForeignKey(Document, on_delete=models.CASCADE, related_name="attachments_document")
+    att_path= models.CharField(max_length=20, null=False)
+    def __str__(self):
+        return(self.att_path)
+
+
+class Movements(models.Model):
+    id_doc = models.ForeignKey(Document, on_delete=models.CASCADE, related_name="movements_document")
+    mov_order = models.IntegerField( null=False)
+    id_attachments = models.IntegerField( null=False)
+    id_ofi_begin = models.IntegerField( null=False)
+    id_ofi_end = models.IntegerField( null=False)
+    id_doc_sender = models.IntegerField( null=False)
+    move_recibed = models.IntegerField( null=False)

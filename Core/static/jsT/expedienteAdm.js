@@ -265,6 +265,7 @@ $("#id_tupa_description").autocomplete({
     }
 });
 var id_document;
+
 function last_insert_document() {
 
     $.ajax({
@@ -273,7 +274,7 @@ function last_insert_document() {
         success: function (data) {
             //console.log(data);
             //console.log(data.datos)
-            id_document=data.datos.id;
+            id_document = data.datos.id;
             registrar_attachment_movements(id_document);
             //console.log(id_document);
         },
@@ -312,21 +313,11 @@ function registrar_attachment_movements(id_document) {
         }
     });
 
-   var datos;
-    datos = {
-
-        csrfmiddlewaretoken: csrf,
-        id_type_document: id_type_document,
-    };
-
     $.ajax({
-        url: path + "/api/Attachments/",
-        type: "POST",
-        data: datos,
+        url: path + "/get_last_document_movement/",
+        type: "GET",
         success: function (data) {
-            //id_document=last_insert_document();
-            last_insert_document();
-            //registrar_attachment_movements(id_document);
+
         },
         error: function () {
             alert("error en el registro ");
@@ -359,7 +350,6 @@ $('#btn_registrar_expediente').click(function () {
         doc_type: doc_type
 
     };
-
 
 
     $.ajax({
