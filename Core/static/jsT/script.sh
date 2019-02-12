@@ -1,7 +1,8 @@
 
+path=1
 for file in *.js
 do
  filename=$(basename "$file")
- sed -i 's/address=.*/address='$addr'/' $file
+ sed -i -e 's/127.0.0.1/157.230.59.200/g' $file
 
 done
