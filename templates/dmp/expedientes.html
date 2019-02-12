@@ -135,7 +135,7 @@
             <div class="card-body">
                 <form id="form_registro_expediente" enctype="multipart/form-data">
 
-                {% csrf_token %}
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-sm-2">
                             <div class="form-group">
@@ -221,12 +221,16 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <!--<label for="ccmonth">Documento</label> -->
-                                <select class="form-control" id="doc_type">
-                                    <option >Seleccionar Tipo de Documento</option>
+                                <input class="form-control" id="doc_type" type="hidden" value="3"
+                                       placeholder="Enter your name">
+                                <!--<select class="form-control" id="doc_type">
+                                    <option>Seleccionar Tipo de Documento</option>
                                     <option value="1">Documento Externo</option>
                                     <option value="2">Documento Interno</option>
                                     <option value="3">Proveidos(documento para enviar otros documentos)</option>
-                                </select>
+                                </select>-->
+
+
                             </div>
                         </div>
                     </div>

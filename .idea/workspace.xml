@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b372f5c-7e7b-405f-bdde-404a979a8498" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Core/static/jsT/enviadosAdm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dmp/enviados.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/static/jsT/script.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js" beforeDir="false" afterPath="$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tramite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tramite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dmp/expedientes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dmp/expedientes.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,11 +57,20 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Core/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1605">
-              <caret line="115" column="23" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="23" />
+            <state relative-caret-position="153">
+              <caret line="90" column="54" selection-start-line="90" selection-start-column="54" selection-end-line="90" selection-end-column="54" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Core/static/jsT/script.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -80,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="enviadosAdm.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="enviadosAdm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Core/static/jsT/enviadosAdm.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -92,8 +96,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Core/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="85" column="12" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="12" />
+            <state relative-caret-position="225">
+              <caret line="102" column="12" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -101,8 +105,26 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="80" selection-start-line="34" selection-start-column="80" selection-end-line="34" selection-end-column="80" />
+            <state relative-caret-position="-3945">
+              <caret line="532" selection-start-line="532" selection-end-line="532" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="expedientes.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/dmp/expedientes.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="223" column="97" selection-start-line="223" selection-start-column="97" selection-end-line="223" selection-end-column="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="expedienteAdm.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-46">
+              <caret line="302" column="41" selection-start-line="302" selection-start-column="22" selection-end-line="302" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -120,8 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>per_address</find>
-      <find>per_doc</find>
       <find>direcci</find>
       <find>celular</find>
       <find>per_type</find>
@@ -150,6 +170,8 @@
       <find>doc_number</find>
       <find>id_ofi_end</find>
       <find>&lt;form</find>
+      <find>facebook</find>
+      <find>tipo</find>
     </findStrings>
     <replaceStrings>
       <replace>href=&quot;{% url '' %}&quot;</replace>
@@ -175,17 +197,18 @@
         <option value="$PROJECT_DIR$/templates/dmp/dashboard.html" />
         <option value="$PROJECT_DIR$/Core/api/resources.py" />
         <option value="$PROJECT_DIR$/Tramite/routes.py" />
-        <option value="$PROJECT_DIR$/templates/dmp/expedientes.html" />
         <option value="$PROJECT_DIR$/Tramite/settings.py" />
         <option value="$PROJECT_DIR$/Core/admin.py" />
         <option value="$PROJECT_DIR$/Core/models.py" />
         <option value="$PROJECT_DIR$/Core/api/serializers.py" />
         <option value="$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js" />
-        <option value="$PROJECT_DIR$/Core/views.py" />
         <option value="$PROJECT_DIR$/Tramite/urls.py" />
         <option value="$PROJECT_DIR$/templates/dmp/enviados.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/Core/static/jsT/enviadosAdm.js" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/templates/dmp/expedientes.html" />
+        <option value="$PROJECT_DIR$/Core/views.py" />
+        <option value="$PROJECT_DIR$/Core/static/jsT/script.sh" />
       </list>
     </option>
   </component>
@@ -211,7 +234,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -257,6 +279,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -413,15 +436,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3294509" />
       <window_info anchor="bottom" x="353" y="298" width="660" height="198" id="Event Log" order="12" sideWeight="0.5015175" side_tool="true" type="FLOATING" weight="0.3294509" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3294509" />
       <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848256" weight="0.3294509" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924126" visible="true" weight="0.3294509" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24506828" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848256" visible="true" weight="0.3294509" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924126" weight="0.2529118" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25265554" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32852808" />
       <window_info anchor="right" id="SciView" order="4" weight="0.32852808" />
@@ -515,13 +539,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tramite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tramite/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
@@ -684,7 +701,7 @@
           <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="294.0" y="174.0" />
           <SelectedNodes />
           <Categories>
-            <Category />
+            <Category>Key columns</Category>
             <Category>Columns</Category>
           </Categories>
           <SCOPE>All</SCOPE>
@@ -702,7 +719,7 @@
           <settings layout="Hierarchic Group" zoom="1.0" x="294.0" y="174.0" />
           <SelectedNodes />
           <Categories>
-            <Category />
+            <Category>Key columns</Category>
             <Category>Columns</Category>
           </Categories>
           <SCOPE>All</SCOPE>
@@ -805,13 +822,6 @@
         <state relative-caret-position="-1258" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4785">
-          <caret line="319" selection-start-line="319" selection-end-line="319" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tramite/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -826,37 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/dmp/expedientes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="115" column="23" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="80" selection-start-line="34" selection-start-column="80" selection-end-line="34" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="85" column="12" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/dmp/enviados.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -867,7 +846,52 @@
     <entry file="file://$PROJECT_DIR$/Core/static/jsT/enviadosAdm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3945">
+          <caret line="532" selection-start-line="532" selection-end-line="532" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dmp/expedientes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="223" column="97" selection-start-line="223" selection-start-column="97" selection-end-line="223" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="302" column="41" selection-start-line="302" selection-start-column="22" selection-end-line="302" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="102" column="12" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="90" column="54" selection-start-line="90" selection-start-column="54" selection-end-line="90" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/static/jsT/script.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>

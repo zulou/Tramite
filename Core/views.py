@@ -88,6 +88,8 @@ def get_last_document_movement(request):
     latest_id= models.Document.objects.latest('id')
     id_tup=models.Document.objects.values('id','id_tupa','id_type_document').filter(id=latest_id.id)
     #tupa = models.Tupa.objects.filter(id=latest_id.id)
+    obj_attachment=models.Attachments(id_doc=latest_id,att_path=latest_id.id)
+    obj_attachment.save()
     datos_tupa=models.Tupa.objects.filter(id=id_tup[0]['id_tupa']).values('id','id_ofi_begin','id_ofi_end')
     obj=models.Movements(mov_order=0,id_doc=latest_id,id_attachments=latest_id.id,id_ofi_begin=datos_tupa[0]['id_ofi_begin'],id_ofi_end=datos_tupa[0]['id_ofi_end'],id_doc_sender=id_tup[0]['id_tupa'],move_recibed=1)
     obj.save()
