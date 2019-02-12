@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b372f5c-7e7b-405f-bdde-404a979a8498" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/static/jsT/enviadosAdm.js" beforeDir="false" afterPath="$PROJECT_DIR$/Core/static/jsT/enviadosAdm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/static/jsT/script.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Core/static/jsT/script.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -81,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="enviadosAdm.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="enviadosAdm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Core/static/jsT/enviadosAdm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+            <state relative-caret-position="285">
+              <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -99,11 +98,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3945">
-              <caret line="532" selection-start-line="532" selection-end-line="532" />
+            <state relative-caret-position="226">
+              <caret line="407" column="72" selection-start-line="407" selection-start-column="72" selection-end-line="407" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tramite/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="45" column="68" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -139,8 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>per_type</find>
-      <find>departa</find>
       <find>tupa</find>
       <find>get</find>
       <find>autocom</find>
@@ -169,6 +175,8 @@
       <find>path</find>
       <find>127</find>
       <find>tipo</find>
+      <find>colors</find>
+      <find>bien</find>
     </findStrings>
     <replaceStrings>
       <replace>href=&quot;{% url '' %}&quot;</replace>
@@ -200,12 +208,12 @@
         <option value="$PROJECT_DIR$/Core/api/serializers.py" />
         <option value="$PROJECT_DIR$/Tramite/urls.py" />
         <option value="$PROJECT_DIR$/templates/dmp/enviados.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/dmp/expedientes.html" />
         <option value="$PROJECT_DIR$/Core/views.py" />
         <option value="$PROJECT_DIR$/Core/static/jsT/script.sh" />
         <option value="$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js" />
         <option value="$PROJECT_DIR$/Core/static/jsT/enviadosAdm.js" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
       </list>
     </option>
   </component>
@@ -819,13 +827,6 @@
         <state relative-caret-position="-1258" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tramite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="45" column="71" lean-forward="true" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Core/api/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
@@ -837,13 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3945">
-          <caret line="532" selection-start-line="532" selection-end-line="532" />
         </state>
       </provider>
     </entry>
@@ -887,8 +881,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Core/static/jsT/enviadosAdm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        <state relative-caret-position="285">
+          <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tramite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="45" column="68" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="407" column="72" selection-start-line="407" selection-start-column="72" selection-end-line="407" selection-end-column="72" />
         </state>
       </provider>
     </entry>
