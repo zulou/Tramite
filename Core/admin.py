@@ -17,8 +17,10 @@ class DistritoAdmin(admin.ModelAdmin):
     list_display = ('id_provincia','distrito',)
 
 class OfficeAdmin(admin.ModelAdmin):
-    search_fields = ['ofi_des']
-    list_display = ('ofi_des',)
+    #search_fields = ['user','ofi_des']
+    search_fields = [ 'ofi_des']
+    #list_display = ('user','ofi_des')
+    list_display = ( 'ofi_des',)
 
 class TupaAdmin(admin.ModelAdmin):
     search_fields = ['id_ofi_begin', 'id_ofi_end', 'tup_des','tup_requeriments','tup_cost','tup_days']
@@ -29,8 +31,8 @@ class Type_documentAdmin(admin.ModelAdmin):
     list_display = ('doc_des',)
 
 class MovementsAdmin(admin.ModelAdmin):
-    search_fields = ['mov_order','id_attachments','id_ofi_begin','id_ofi_end','id_doc_sender','move_recibed']
-    list_display = ('mov_order','id_attachments','id_ofi_begin','id_ofi_end','id_doc_sender','move_recibed')
+    search_fields = ['mov_order','id_attachments','id_ofi_begin','id_ofi_end','id_doc_sender','move_recibed','created']
+    list_display = ('mov_order','id_attachments','id_ofi_begin','id_ofi_end','id_doc_sender','move_recibed','created')
 
 class Document_identityAdmin(admin.ModelAdmin):
     search_fields = ['doc_des']
@@ -41,8 +43,8 @@ class PersonAdmin(admin.ModelAdmin):
     list_display = ('id_doc','per_name','per_lastname','per_doc','per_cellphone','per_type')
 
 class DocumentAdmin(admin.ModelAdmin):
-    search_fields = ['id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type']
-    list_display = ('id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type')
+    search_fields = ['id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type','created']
+    list_display = ('id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type','created')
 
 class AttachmentsAdmin(admin.ModelAdmin):
     search_fields = ['id_doc','att_path']
@@ -62,3 +64,4 @@ admin.site.register(models.Document,DocumentAdmin)
 admin.site.register(models.Departamento,DepartamentoAdmin)
 admin.site.register(models.Provincia,ProvinciaAdmin)
 admin.site.register(models.Distrito,DistritoAdmin)
+

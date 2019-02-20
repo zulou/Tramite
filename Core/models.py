@@ -17,12 +17,13 @@ class Provincia(models.Model):
 
 
 class Distrito(models.Model):
-    id_provincia=models.ForeignKey(Provincia, on_delete=models.CASCADE, related_name="tupa_office_begin")
+    id_provincia=models.ForeignKey(Provincia, on_delete=models.CASCADE, related_name="distrito_provincia")
     distrito = models.CharField(max_length=30, null=False)
     def __str__(self):
         return(self.distrito)
 
 class Office(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE,default=1)
     ofi_des = models.CharField(max_length=40, null=False)
     def __str__(self):
         return(self.ofi_des)
@@ -84,6 +85,7 @@ class Document (models.Model):
     doc_des = models.CharField(max_length=50, null=False)
     doc_pages = models.IntegerField( null=False)
     doc_type= models.IntegerField( null=False)
+    created=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return(str(self.id_type_document)+" "+str(self.id_person)+" "+str(self.id_tupa))
@@ -113,3 +115,4 @@ class Movements(models.Model):
     id_ofi_end = models.IntegerField( null=False)
     id_doc_sender = models.IntegerField( null=False)
     move_recibed = models.IntegerField( null=False)
+    created=models.DateField(auto_now_add=True)

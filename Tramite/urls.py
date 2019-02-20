@@ -44,6 +44,11 @@ urlpatterns = [
     path('get_last_document_movement/', views.get_last_document_movement, name='get_last_document_movement'),
 
     path('enviadosMp/', views.enviadosMp, name='expedientes_enviados'),
+    path('comformidadMp/', views.comformidadMp, name='cargo_conformidad'),
+    path('get_documentos_conformidad/<id>/<date>/', views.get_documentos_conformidad, name='get'),
+
+
+    path('BandejaEntradaUsers/', views.recibidosUsers, name='expedientes_recibidos_users')
 
 
 ]

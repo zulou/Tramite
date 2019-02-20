@@ -206,19 +206,31 @@ $('#id_provincia').change(function () {
 });
 
 var aux_t;
-
+var offices;
 function update_destino(id_destino) {
 
+
     $.ajax({
-        url: path + "/api/Office/" + id_destino + "/",
+        url: path + "/api/Tupa/"+id_destino+"/",
+        type: "GET",
+        success: function (data) {
+            offices = data.id_ofi_end;
+            update_destino_office(offices);
+        }
+    });
+
+}
+
+function update_destino_office(offices) {
+
+    $.ajax({
+        url: path + "/api/Office/" + offices + "/",
         type: "GET",
         success: function (data) {
 
             $('#id_nombre_destino').val(data.ofi_des);
         }
     });
-    //console.log(aux_id_office);
-
 }
 
 
@@ -251,7 +263,9 @@ $("#id_tupa_description").autocomplete({
 
     select: function (event, ui) {
 
+
         this.value = ui.item.label;
+        console.log(ui);
         // Set the next input's value to the "value" of the item.
         //update_destino(ui.item.value);
         update_input_name(ui.item.label);
@@ -259,7 +273,8 @@ $("#id_tupa_description").autocomplete({
         $('#id_tupa').val(ui.item.value);
         $('#id_tupa_description').val(ui.item.label);
         $('#doc_tupa').val(ui.item.label);
-        update_destino(aux_t[0].id_ofi_end);
+        console.log(ui.item.value);
+        update_destino(ui.item.value);
 
         event.preventDefault();
     }
