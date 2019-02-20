@@ -231,6 +231,8 @@ def recibidosUsers(request):
     username = None
     if request.user.is_authenticated:
         username = request.user.username
+
+
         queryset = models.Office.objects.values('id', 'tupa_office_end__document_tupa__doc_number',
                                                 'tupa_office_end__document_tupa__doc_exp_number',
                                                 'tupa_office_end__document_tupa__doc_pages',

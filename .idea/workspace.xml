@@ -2,52 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b372f5c-7e7b-405f-bdde-404a979a8498" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/dmp/conformidad.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dmp/recibidos.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dmp/script.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dusers/enviados.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/migrations/0002_person_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/migrations/0003_departamento_distrito_provincia.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/migrations/0004_auto_20190203_1803.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/migrations/0005_auto_20190205_1732.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/migrations/0006_remove_person_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/migrations/0007_remove_person_per_address.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/migrations/0008_auto_20190209_0032.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/migrations/0009_movements_id_doc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/static/cssT/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Core/static/cssT/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/static/jsT/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/Core/static/jsT/datatables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js" beforeDir="false" afterPath="$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tramite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tramite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tramite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tramite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/61.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/62.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/63.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/64.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/65.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/66.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/67.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/68.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/69.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/70.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/71.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/72.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/73.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/74.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/75.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/76.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/77.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/78.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dmp/enviados.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dmp/enviados.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dmp/expedientes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dmp/expedientes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dusers/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dusers/expedientes.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -97,8 +54,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Core/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="232" column="40" selection-start-line="232" selection-start-column="40" selection-end-line="232" selection-end-column="40" />
+            <state relative-caret-position="183">
+              <caret line="245" column="39" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="39" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -109,8 +66,8 @@
       <file leaf-file-name="script.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/dmp/script.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -118,8 +75,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tramite/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1620">
-              <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
+            <state relative-caret-position="122">
+              <caret line="111" selection-start-line="111" selection-end-line="111" />
             </state>
           </provider>
         </entry>
@@ -136,8 +93,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Core/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="81" column="91" selection-start-line="81" selection-start-column="78" selection-end-line="81" selection-end-column="91" />
+            <state relative-caret-position="195">
+              <caret line="49" column="51" lean-forward="true" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -258,11 +215,11 @@
         <option value="$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/dmp/recibidos.html" />
-        <option value="$PROJECT_DIR$/Core/models.py" />
         <option value="$PROJECT_DIR$/Tramite/settings.py" />
         <option value="$PROJECT_DIR$/Tramite/urls.py" />
         <option value="$PROJECT_DIR$/templates/dmp/conformidad.html" />
         <option value="$PROJECT_DIR$/templates/dmp/script.sh" />
+        <option value="$PROJECT_DIR$/Core/models.py" />
         <option value="$PROJECT_DIR$/Core/views.py" />
       </list>
     </option>
@@ -492,9 +449,9 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3294509" />
       <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848256" weight="0.3294509" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848256" visible="true" weight="0.3294509" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924126" weight="0.2545757" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17905918" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17905918" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32852808" />
       <window_info anchor="right" id="SciView" order="4" weight="0.32852808" />
@@ -939,23 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Core/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="81" column="91" selection-start-line="81" selection-start-column="78" selection-end-line="81" selection-end-column="91" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tramite/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Core/static/jsT/expedienteAdm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -977,17 +917,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Tramite/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/dmp/script.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="49" column="51" lean-forward="true" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Core/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="232" column="40" selection-start-line="232" selection-start-column="40" selection-end-line="232" selection-end-column="40" />
+        <state relative-caret-position="183">
+          <caret line="245" column="39" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="39" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
