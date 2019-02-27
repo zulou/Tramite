@@ -46,6 +46,7 @@ function get_data_document(id_document) {
                 $('#doc_pages').val(items.doc_pages);
                 $('#id_tupa').val(items.id_tupa)
                 $('#doc_type').val(3);
+                $('#id_person').val(items.id_person);
                 get_person_id(items.id_person);
                 get_tupa_id(items.id_tupa);
                 update_destino(items.id_tupa);
@@ -89,6 +90,7 @@ function get_person_id(id) {
 
             $('#per_dni').val(items.per_doc);
             $('#id_nombre').val(items.per_name+" "+items.per_lastname);
+            $('#id_person').val(items.id);
         }
 
     });
@@ -315,6 +317,7 @@ $('#btn_registrar_expediente').click(function () {
 
     };
 
+
     var id_doc=$('#id_document').val();
     $.ajax({
         url: path + "/api/Document/"+id_doc+"/",
@@ -322,14 +325,16 @@ $('#btn_registrar_expediente').click(function () {
         data: datos,
         success: function (data) {
 
-            var namePdf=$('.custom-file-label').val();
+            var namePdf=$('.custom-file-label').html();
             console.log(namePdf)
             if(namePdf==id_doc+".pdf"){
-
+                alert("Actualizado con éxito!!");
+                window.location.reload();
             }
             else{
                 last_insert_document();
             }
+
 
         },
         error: function () {

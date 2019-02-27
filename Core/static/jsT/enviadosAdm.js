@@ -2,10 +2,8 @@ var path = "http://127.0.0.1:8000";
 
 var dataset = [];
 
-{%
-    if documentos %}
-{%
-    for document in documentos %}
+{%    if documentos %}
+{%    for document in documentos %}
 //dataset.push({id:"{{vou.id}}",voucher:"{{vou.vouch.id}}",dni:"{{vou.vouch.consession.clients.dni}}",name:"{{vou.vouch.consession.clients.firstname}} {{vou.vouch.consession.clients.lastname}}",market:"{{vou.vouch.consession.points.sections.markets.name}}",section:"{{vou.vouch.consession.points.sections.name}}",point:"{{vou.vouch.consession.points.point_code}}",date:"{{vou.vouch.date_pay}}",price_point:"{{vou.price_point}}"});
 dataset.push({
     id: "{{document.id}}",
@@ -20,16 +18,11 @@ dataset.push({
 });
 //console.log("{{vou}}");
 
-{%
-    endfor %
-}
+{%    endfor %}
 
-{% else %
-}
+{% else %}
 
-{%
-    endif %
-}
+{%    endif %}
 
 
 $(document).ready(function () {
@@ -132,13 +125,6 @@ $(document).ready(function () {
         var data = table.row($(this).parents('tr')).data();
 
         console.log(data);
-        $("#id_pay").val(data.id);
-        $("#voucher").val(data.voucher);
-        $("#dni_pay").val(data.dni);
-        $("#full_name").val(data.name);
-        $("#concession").val(data.market + "  /  " + data.section + " / " + data.point);
-        $("#price").val(data.price_point);
-        $('#edit_vouchers').modal('show');
 
 
     });
@@ -148,34 +134,6 @@ $(document).ready(function () {
         console.log(data.id);
     });
 
-    $('#button-pay').click(function (e) {
-        e.preventDefault();
-        var id = parseInt($("#id_pay").val());
-        var voucher = parseInt($("#voucher").val());
-        var csrf_pay = $('#pay_concession input[name=csrfmiddlewaretoken]').val();
-        var price_point = parseInt($("#price").val());
-        console.log(csrf_pay);
-        var datos;
-        datos = {
-            csrfmiddlewaretoken: csrf_pay,
-            id: id,
-            vouch: voucher,
-            price_point: price_point,
-            price_water: 0,
-            price_energy: 0
-
-        };
-        $.ajax({
-            url: path + "/api/VoucherDetail/" + voucher + "/",
-            type: "PUT",
-            dataType: "json",
-            data: datos,
-            success: function (data) {
-
-                alert("éxito!!1");
-            }
-        });
-    });
 
 
 });
