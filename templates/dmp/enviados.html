@@ -3,8 +3,9 @@
 {% load static %}
 {% block content %}
 
-    <div class="card">
 
+    <!-- Modal-->
+    <div class="card">
     <div class="card-header">
         <i class="fa fa-edit"></i> DataTables
         <div class="card-header-actions">
@@ -77,7 +78,7 @@
         $(document).ready(function () {
 
 
-            var table = $('#list-persona').DataTable({
+            var table = $('#list-enviados').DataTable({
                 "language": {
                     "sProcessing": "Procesando...",
                     "sLengthMenu": "Mostrar _MENU_ registros",
@@ -130,17 +131,11 @@
             });
 
 
-            $('#list-persona tbody').on('click', 'button.btn-outline-warning', function () {
+            $('#list-enviados tbody').on('click', 'a.btn.btn-info', function () {
                 var data = table.row($(this).parents('tr')).data();
 
                 console.log(data);
-                $("#id_pay").val(data.id);
-                $("#voucher").val(data.voucher);
-                $("#dni_pay").val(data.dni);
-                $("#full_name").val(data.name);
-                $("#concession").val(data.market + "  /  " + data.section + " / " + data.point);
-                $("#price").val(data.price_point);
-                $('#edit_vouchers').modal('show');
+
 
 
             });

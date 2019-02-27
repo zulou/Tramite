@@ -67,7 +67,7 @@ class Documentserializer(serializers.HyperlinkedModelSerializer):
         model = models.Document
         fields = ('id',
             'id_type_document', 'id_person', 'id_tupa', 'doc_number', 'doc_exp_number', 'doc_des', 'doc_pages',
-            'doc_type')
+            'doc_type','doc_status')
 
 class Attachmentsserializer(serializers.HyperlinkedModelSerializer):
     id_doc = serializers.PrimaryKeyRelatedField(many=False, queryset=models.Document.objects.all())

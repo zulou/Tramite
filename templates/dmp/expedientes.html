@@ -121,139 +121,143 @@
         </div>
     </div>
 
-        <div class="card">
-            <div class="card-header">
-                <strong>Registro de Expedientes</strong>
+    <div class="card">
+        <div class="card-header">
+            <strong>Registro de Expedientes</strong>
 
 
-                <button type="button" class="btn btn-primary float-right" data-toggle="modal"
-                        data-target="#exampleModal"
-                        data-whatever="@fat">
-                    Registro de Personas
-                </button>
-            </div>
-            <div class="card-body">
-                <form id="form_registro_expediente" enctype="multipart/form-data">
-
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                <label for="ccmonth">Documento</label>
-                                <select class="form-control" id="id_type_document">
-                                    <option>Seleccionar</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                <label for="name">Numero</label>
-                                <input class="form-control" id="doc_number" type="text" placeholder="Numero">
-                            </div>
-                        </div>
-
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                <label for="name">Folios</label>
-                                <input class="form-control" id="doc_pages" type="text" placeholder="Folios">
-                            </div>
-                        </div>
-
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                <label for="name">Dni</label>
-                                <input class="form-control" id="per_dni" type="text" placeholder="Dni">
-                                <input class="form-control" id="id_person" type="hidden">
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="name">Administrado</label>
-                                <input class="form-control" id="id_nombre" type="text" placeholder="Administrado">
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="name">Asunto</label>
-                                <input class="form-control" id="doc_tupa" type="text" placeholder="Asunto">
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="name">Tupa</label>
-                                <input class="form-control" id="id_tupa" type="hidden" placeholder="Enter your name">
-                                <input class="form-control" id="id_tupa_description" type="text"
-                                       placeholder="Enter your name">
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="name">Oficina Destino</label>
-                                <input class="form-control" id="id_nombre_destino" type="text"
-                                       placeholder="Enter your name">
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="id_file_expediente" lang="es">
-                                    <label class="custom-file-label" for="id_file_expediente">Seleccionar
-                                        Archivo</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <!--<label for="ccmonth">Documento</label> -->
-                                <input class="form-control" id="doc_type" type="hidden" value="3"
-                                       placeholder="Enter your name">
-                                <!--<select class="form-control" id="doc_type">
-                                    <option>Seleccionar Tipo de Documento</option>
-                                    <option value="1">Documento Externo</option>
-                                    <option value="2">Documento Interno</option>
-                                    <option value="3">Proveidos(documento para enviar otros documentos)</option>
-                                </select>-->
-
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-
-                                <button type="button" id="btn_registrar_expediente"
-                                        class="btn btn-primary btn-lg btn-block">Registrar Expediente
-                                </button>
-
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                    data-target="#exampleModal"
+                    data-whatever="@fat">
+                Registro de Personas
+            </button>
         </div>
+        <div class="card-body">
+            <form id="form_registro_expediente" enctype="multipart/form-data">
 
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="ccmonth">Documento</label>
+                            <select class="form-control" id="id_type_document">
+                                <option>Seleccionar</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="name">Numero</label>
+                            <input class="form-control" id="doc_number" type="text" placeholder="Numero">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="name">Folios</label>
+                            <input class="form-control" id="doc_pages" type="text" placeholder="Folios">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="name">Dni</label>
+                            <input class="form-control" id="per_dni" type="text" placeholder="Dni">
+                            <input class="form-control" id="id_person" type="hidden">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="name">Administrado</label>
+                            <input class="form-control" id="id_nombre" type="text" placeholder="Administrado">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="name">Tupa</label>
+                            <input class="form-control" id="id_tupa" type="hidden" placeholder="Enter your name">
+                            <input class="form-control" id="id_tupa_description" type="text"
+                                   placeholder="Enter your name">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="name">Asunto</label>
+                            <input class="form-control" id="doc_tupa" type="text" placeholder="Asunto">
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="name">Oficina Destino</label>
+                            <input class="form-control" id="id_nombre_destino" type="text"
+                                   placeholder="Enter your name">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="id_file_expediente" lang="es">
+                                <label class="custom-file-label" for="id_file_expediente">Seleccionar
+                                    Archivo</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <!--<label for="ccmonth">Documento</label> -->
+                            <input class="form-control" id="doc_type" type="hidden" value="3"
+                                   placeholder="Enter your name">
+                            <!--<select class="form-control" id="doc_type">
+                                <option>Seleccionar Tipo de Documento</option>
+                                <option value="1">Documento Externo</option>
+                                <option value="2">Documento Interno</option>
+                                <option value="3">Proveidos(documento para enviar otros documentos)</option>
+                            </select>-->
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+
+                            <button type="button" id="btn_registrar_expediente"
+                                    class="btn btn-primary btn-lg btn-block">Registrar Expediente
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+
+
 {% endblock %}
 
 {% block scripts %}
     <script src="{% static 'jsT/expedienteAdm.js' %}"></script>
+    <script src="{% static 'jsT/newWindowjs.js' %}"></script>
 {% endblock %}

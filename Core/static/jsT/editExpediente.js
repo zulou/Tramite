@@ -1,8 +1,6 @@
 var path = "http://127.0.0.1:8000";
 
 
-
-
 $.ajax({
     method: "GET",
     url: path + "/api/Document_identity/",
@@ -31,20 +29,70 @@ $.ajax({
 
 });
 
+function get_data_document(id_document) {
+    //console.log(id_document);
 
-$.ajax({
-    method: "GET",
-    url: path + "/get_departamentos/",
-    success: function (items) {
-        $.each(items.datos, function (i, item) {
-            $('#id_departamento').append($('<option>', {
-                value: item.id,
-                text: item.departamento
-            }));
-        });
-    }
 
-});
+    $.ajax({
+        method: "GET",
+        url: path + "/api/Document/" + id_document + ".json",
+        success: function (items) {
+            console.log(items);
+            if (items.doc_status == 0) {
+                $('#id_document').val(id_document);
+                var $select = $('#id_type_document');
+                $select.val(items.id_type_document);
+                $('#doc_number').val(items.doc_number);
+                $('#doc_pages').val(items.doc_pages);
+                $('#id_tupa').val(items.id_tupa)
+                $('#doc_type').val(3);
+                get_person_id(items.id_person);
+                get_tupa_id(items.id_tupa);
+                update_destino(items.id_tupa);
+                $('#id_file_expediente').next('.custom-file-label').html(id_document+".pdf");
+
+
+
+            }
+            else {
+                alert("El documento nose puede Editar, por que ya fue recepcionado ");
+                $('#exampleModal').modal('hide');
+
+                window.location.reload();
+            }
+
+
+        }
+
+    });
+}
+
+function get_tupa_id(id){
+
+      $.ajax({
+        method: "GET",
+        url: path + "/api/Tupa/" + id+ ".json",
+        success: function (items) {
+            $('#id_tupa_description').val(items.tup_des);
+            $('#doc_tupa').val(items.tup_des);
+        }
+
+    });
+
+}
+function get_person_id(id) {
+
+    $.ajax({
+        method: "GET",
+        url: path + "/api/Person/" + id+ ".json",
+        success: function (items) {
+
+            $('#per_dni').val(items.per_doc);
+            $('#id_nombre').val(items.per_name+" "+items.per_lastname);
+        }
+
+    });
+}
 
 function update_input_name(id) {
 
@@ -74,11 +122,8 @@ $("#per_dni").autocomplete({
 
                 response($.map(data.datos, function (na) {
                     return {
-
                         label: na.per_doc,
                         value: na.per_doc
-
-
                     };
                 }))
             }
@@ -97,123 +142,18 @@ $("#per_dni").autocomplete({
 
         event.preventDefault();
     }
-});
 
+}).autocomplete("option", "appendTo", "#form_registro_expediente");
 
-$("#registro_persona").on("submit", function (event) {
-    event.preventDefault();
-
-    var data = $(this).serialize();
-    console.log(data);
-    $.ajax({
-        method: "POST",
-        url: path + "/api/Person/",
-        data: data,
-        dataType: "json",
-        success: function (request) {
-            $.ajax({
-                method: "GET",
-                url: path + "/get_last_person/",
-                success: function (items) {
-                    $('#person_id').val(items.datos.id);
-                    $('#per_dni').val(items.datos.dni);
-                    $('#id_nombre').val(items.datos.nombres);
-                }
-
-            });
-            $('#exampleModal').modal('toggle');
-
-        },
-        error: function (request) {
-            console.log(request);
-        }
-
-    });
-
-});
-
-$('#id_departamento').change(function () {
-
-    var id_dep = $('#id_departamento option:selected').val();
-    $.ajax({
-        method: "GET",
-        url: path + "/get_provincias/" + id_dep + "/",
-        success: function (items) {
-
-            if (items.datos.length != 0) {
-                //$('#id_provincia').remove().end();
-                $('#id_provincia').find('option')
-                    .remove()
-                    .end()
-                    .append('<option value="whatever">Seleccionar</option>')
-                    .val('whatever');
-
-                $.each(items.datos, function (i, item) {
-                    $('#id_provincia').append($('<option>', {
-                        value: item.id,
-                        text: item.provincia
-                    }));
-                });
-            }
-            else {
-                $('#id_provincia').find('option')
-                    .remove()
-                    .end()
-                    .append('<option value="whatever">Seleccionar</option>')
-                    .val('whatever');
-                $('#id_distrito').find('option')
-                    .remove()
-                    .end()
-                    .append('<option value="whatever">Seleccionar</option>')
-                    .val('whatever');
-            }
-        }
-    });
-});
-
-
-$('#id_provincia').change(function () {
-
-    var id_prov = $('#id_provincia option:selected').val();
-    $.ajax({
-        method: "GET",
-        url: path + "/get_distritos/" + id_prov + "/",
-        success: function (items) {
-
-            if (items.datos.length != 0) {
-                //$('#id_provincia').remove().end();
-                $('#id_distrito').find('option')
-                    .remove()
-                    .end()
-                    .append('<option value="whatever">Seleccionar</option>')
-                    .val('whatever');
-
-
-                $.each(items.datos, function (i, item) {
-                    $('#id_distrito').append($('<option>', {
-                        value: item.id,
-                        text: item.distrito
-                    }));
-                });
-            }
-            else {
-                $('#id_distrito').find('option')
-                    .remove()
-                    .end()
-                    .append('<option value="whatever">Seleccionar</option>')
-                    .val('whatever');
-            }
-        }
-    });
-});
 
 var aux_t;
 var offices;
+
 function update_destino(id_destino) {
 
 
     $.ajax({
-        url: path + "/api/Tupa/"+id_destino+"/",
+        url: path + "/api/Tupa/" + id_destino + "/",
         type: "GET",
         success: function (data) {
             offices = data.id_ofi_end;
@@ -237,7 +177,6 @@ function update_destino_office(offices) {
 
 
 $("#id_tupa_description").autocomplete({
-
 
     source: function (request, response) {
         var tupa = $('#id_tupa_description').val();
@@ -280,7 +219,7 @@ $("#id_tupa_description").autocomplete({
 
         event.preventDefault();
     }
-});
+}).autocomplete("option", "appendTo", "#form_registro_expediente");
 var id_document;
 
 function last_insert_document() {
@@ -289,14 +228,14 @@ function last_insert_document() {
         url: path + "/get_last_document/",
         type: "GET",
         success: function (data) {
-            //console.log(data);
-            //console.log(data.datos)
+
             id_document = data.datos.id;
             registrar_attachment_movements(id_document);
-            //console.log(id_document);
+
         },
         error: function () {
             alert("error en el registro ");
+
         }
     });
     return id_document;
@@ -327,7 +266,7 @@ function registrar_attachment_movements(id_document) {
             $("#btn_registrar_expediente").prop("disabled", false);
             alert("se Regitro con exito");
 
-            window.open(path+"/imprimirHojaTramite/");
+            window.open(path + "/imprimirHojaTramite/");
             window.location.reload();
 
 
@@ -372,20 +311,26 @@ $('#btn_registrar_expediente').click(function () {
         doc_des: doc_des,
         doc_pages: doc_pages,
         doc_type: doc_type,
-        doc_status:0
+        doc_status: 0
 
     };
 
-
+    var id_doc=$('#id_document').val();
     $.ajax({
-        url: path + "/api/Document/",
-        type: "POST",
+        url: path + "/api/Document/"+id_doc+"/",
+        type: "PATCH",
         data: datos,
         success: function (data) {
-            //id_document=last_insert_document();
-            last_insert_document();
 
-            //registrar_attachment_movements(id_document);
+            var namePdf=$('.custom-file-label').val();
+            console.log(namePdf)
+            if(namePdf==id_doc+".pdf"){
+
+            }
+            else{
+                last_insert_document();
+            }
+
         },
         error: function () {
             alert("error en el registro ");

@@ -18,7 +18,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>CoreUI Free Bootstrap Admin Template</title>
+    <title>Sistema de Tramite Documentario</title>
     <!-- Icons-->
 
     <link href="{% static 'cssT/coreui-icons.min.css' %}" rel="stylesheet">
@@ -38,8 +38,15 @@
     <link href="{% static 'cssT/style.css' %}" rel="stylesheet">
     <link href="{% static 'cssT/pace.min.css' %}" rel="stylesheet">
 
+    <style>
+        ul.ui-autocomplete.ui-menu {
+            z-index: 1000;
+        }
+    </style>
+
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <!--<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>-->
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -77,7 +84,7 @@
             </li>
 
             <li class="nav-item px-3">
-                <a class="nav-link" href="{% url 'admin:Core_tupa_changelist' %}">Tupa</a>
+                <a class="nav-link newWindow" href="{% url 'admin:Core_tupa_changelist' %}">Tupa</a>
             </li>
 
             <li class="nav-item px-3">
@@ -86,11 +93,11 @@
 
 
             <li class="nav-item px-3">
-                <a class="nav-link" href="{% url 'admin:index' %}">Settings</a>
+                <a class="nav-link newWindow" href="{% url 'admin:index' %}">Settings</a>
             </li>
         </ul>
 
-    {% elif request.user|has_group:"usuario_oficia" %}
+    {% elif request.user|has_group:"usuario_oficina" %}
 
         <ul class="nav navbar-nav d-md-down-none">
             <li class="nav-item px-3">
@@ -119,7 +126,7 @@
 
 
             <li class="nav-item px-3">
-                <a class="nav-link" href="{% url 'admin:index' %}">Settings</a>
+                <a class="nav-link newWindow" href="{% url 'admin:index' %}">Settings</a>
             </li>
         </ul>
 
@@ -130,19 +137,19 @@
             </li>
 
             <li class="nav-item px-3">
-                <a class="nav-link" href="{% url 'admin:Core_office_changelist' %}">Oficinas</a>
+                <a class="nav-link newWindow" href="{% url 'admin:Core_office_changelist' %}">Oficinas</a>
             </li>
 
             <li class="nav-item px-3">
-                <a class="nav-link" href="{% url 'admin:auth_user_changelist' %}">Usuarios</a>
+                <a class="nav-link newWindow" href="{% url 'admin:auth_user_changelist' %}">Usuarios</a>
             </li>
 
             <li class="nav-item px-3">
-                <a class="nav-link" href="{% url 'admin:Core_person_changelist' %}">Personas</a>
+                <a class="nav-link newWindow" href="{% url 'admin:Core_person_changelist' %}">Personas</a>
             </li>
 
             <li class="nav-item px-3">
-                <a class="nav-link" href="{% url 'admin:index' %}">Settings</a>
+                <a class="nav-link newWindow" href="{% url 'admin:index' %}">Settings</a>
             </li>
         </ul>
 
@@ -251,7 +258,7 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link"  href="{% url 'cargo_conformidad' %}">
+                            <a class="nav-link" href="{% url 'cargo_conformidad' %}">
                                 <i class="nav-icon icon-puzzle"></i> Conformidads2</a>
                         </li>
 
@@ -272,17 +279,17 @@
                     <ul class="nav-dropdown-items">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'admin:Core_person_changelist' %}" target="_top">
+                            <a class="nav-link newWindow" href="{% url 'admin:Core_person_changelist' %}" target="_top">
                                 <i class="nav-icon icon-star"></i> Personas</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'admin:Core_tupa_changelist' %}" target="_top">
+                            <a class="nav-link newWindow" href="{% url 'admin:Core_tupa_changelist' %}" target="_top">
                                 <i class="nav-icon icon-star"></i> Tupa</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'admin:index' %}" target="_top">
+                            <a class="nav-link newWindow" href="{% url 'admin:index' %}" target="_top">
                                 <i class="nav-icon icon-star"></i> General</a>
                         </li>
 
@@ -333,7 +340,7 @@
 
 
                         <li class="nav-item">
-                                <a class="nav-link"  href="{% url 'cargo_conformidad' %}">
+                            <a class="nav-link" href="{% url 'cargo_conformidad' %}">
                                 <i class="nav-icon icon-puzzle"></i> Conformidads</a>
                         </li>
 
@@ -363,7 +370,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'admin:index' %}" target="_top">
+                            <a class="nav-link newWindow" href="{% url 'admin:index' %}" target="_top">
                                 <i class="nav-icon icon-star"></i> General</a>
                         </li>
 
@@ -414,7 +421,7 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link"  href="{% url 'cargo_conformidad' %}">
+                            <a class="nav-link" href="{% url 'cargo_conformidad' %}">
                                 <i class="nav-icon icon-puzzle"></i> Conformidadd</a>
                         </li>
 
@@ -435,22 +442,22 @@
                     <ul class="nav-dropdown-items">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'admin:Core_person_changelist' %}" target="_top">
+                            <a class="nav-link newWindow" href="{% url 'admin:Core_person_changelist' %}" target="_top">
                                 <i class="nav-icon icon-star"></i> Personas</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'admin:Core_office_changelist' %}" target="_top">
+                            <a class="nav-link newWindow" href="{% url 'admin:Core_office_changelist' %}" target="_top">
                                 <i class="nav-icon icon-star"></i> Oficinas</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'admin:auth_user_changelist' %}" target="_top">
+                            <a class="nav-link newWindow" href="{% url 'admin:auth_user_changelist' %}" target="_top">
                                 <i class="nav-icon icon-star"></i> Usuarios</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'admin:index' %}" target="_top">
+                            <a class="nav-link newWindow" href="{% url 'admin:index' %}" target="_top">
                                 <i class="nav-icon icon-star"></i> General</a>
                         </li>
 
@@ -505,26 +512,26 @@
 
 
 
-                    <!-- /.row-->
-
-                    <!--<div class="chart-wrapper" style="height:300px;margin-top:40px;">
-                      <canvas class="chart" id="main-chart" height="300"></canvas>
-                    </div>-->
-                    {% block content %}
-
-                    {% endblock %}
-
-
-
-                <!-- /.card-->
-
-                <!-- /.row-->
-
-                <!-- /.col-->
-            </div>
             <!-- /.row-->
+
+            <!--<div class="chart-wrapper" style="height:300px;margin-top:40px;">
+              <canvas class="chart" id="main-chart" height="300"></canvas>
+            </div>-->
+            {% block content %}
+
+            {% endblock %}
+
+
+
+            <!-- /.card-->
+
+            <!-- /.row-->
+
+            <!-- /.col-->
         </div>
+        <!-- /.row-->
     </div>
+</div>
 </main>
 <aside class="aside-menu">
     <ul class="nav nav-tabs" role="tablist">
@@ -893,6 +900,8 @@
 <script src="{% static 'jsT/jquery-ui.min.js' %}"></script>
 
 <script src="{% static 'jsT/printThis.js' %}"></script>
+
+<script src="{% static 'jsT/newWindowjs.js' %}"></script>
 
 
 {% block scripts %}

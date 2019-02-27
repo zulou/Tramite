@@ -1,3 +1,4 @@
+from django.forms import renderers
 from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from django.utils.dateparse import parse_date
@@ -92,6 +93,69 @@ def get_last_document(request):
     latest_id = models.Document.objects.latest('id')
     return JsonResponse({'datos': {'id': latest_id.id}})
 
+@login_required(redirect_field_name='my_redirect_field')
+def get_id_office(request,office,date):
+    id_office = models.Office.objects.values('id').filter(ofi_des__icontains=office)
+    #return(id_office[0])
+    #today_min = datetime.datetime.combine(parse_date(date), datetime.time.min)
+    #today_max = datetime.datetime.combine(parse_date(date), datetime.time.max)
+
+    queryset = models.Office.objects.values('id', 'tupa_office_end__document_tupa__doc_number',
+                                            'tupa_office_end__document_tupa__doc_exp_number',
+                                            'tupa_office_end__document_tupa__doc_pages',
+                                            'tupa_office_end__document_tupa__id_tupa'
+                                            , 'tupa_office_end__document_tupa__id_person_id',
+                                            'tupa_office_end__id_ofi_begin__id',
+                                            'tupa_office_end__id_ofi_end__id',
+                                            'tupa_office_end__document_tupa__doc_des',
+                                            'tupa_office_end__document_tupa__id',
+                                            'tupa_office_end__document_tupa__created').filter(pk=id_office[0]['id'])
+
+    lista = []
+    dic = {}
+    #if not queryset:
+    for entry in queryset:
+        year = entry['tupa_office_end__document_tupa__created'].year
+        print(year)
+        month = entry['tupa_office_end__document_tupa__created'].month
+        day = entry['tupa_office_end__document_tupa__created'].day
+
+        date_year = parse_date(date).year
+        date_month = parse_date(date).month
+        date_day = parse_date(date).day
+
+        if (int(day) == int(date_day)) and (int(month) == int(date_month)) and (int(year) == int(date_year)):
+
+            id_tupa = models.Tupa.objects.values('tup_des').filter(pk=entry['tupa_office_end__document_tupa__id_tupa'])
+            ofi_des_begin = models.Office.objects.values('ofi_des').filter(
+                pk=entry['tupa_office_end__id_ofi_begin__id'])
+            ofi_des_end = models.Office.objects.values('ofi_des').filter(pk=entry['tupa_office_end__id_ofi_end__id'])
+            id_person = models.Person.objects.values('per_name', 'per_lastname').filter(
+                pk=entry['tupa_office_end__document_tupa__id_person_id'])
+
+            #dic['id'] = entry['tupa_office_end__document_tupa__id']
+            dic['doc_number'] = entry['tupa_office_end__document_tupa__doc_number']
+            dic['doc_exp_number'] = entry['tupa_office_end__document_tupa__doc_exp_number']
+            dic['doc_pages'] = entry['tupa_office_end__document_tupa__doc_pages']
+            dic['id_tupa'] = id_tupa[0]['tup_des']
+
+            dic['id_person'] = str(id_person[0]['per_name'] + " " + id_person[0]['per_lastname'])
+            dic['doc_begin'] = ofi_des_begin[0]['ofi_des']
+            dic['doc_des'] = ofi_des_end[0]['ofi_des']
+            dic['created'] = entry['tupa_office_end__document_tupa__created'].strftime('%m-%d-%Y')
+
+
+            lista.append(dic.copy())
+
+        else:
+            #lista(lista);
+            continue
+            #return JsonResponse({'data': list(lista)})
+
+    return JsonResponse({'data':list(lista)})
+
+
+
 
 @login_required(redirect_field_name='my_redirect_field')
 def get_last_document_movement(request):
@@ -184,8 +248,6 @@ def comformidadMp(request):
 
 @login_required(redirect_field_name='my_redirect_field')
 def get_documentos_conformidad(request,id,date):
-    #today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
-    #today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
     today_min = datetime.datetime.combine(parse_date(date), datetime.time.min)
     today_max = datetime.datetime.combine(parse_date(date), datetime.time.max)
 
@@ -200,39 +262,52 @@ def get_documentos_conformidad(request,id,date):
                                             'tupa_office_end__document_tupa__id',
                                             'tupa_office_end__document_tupa__created').filter(pk=id)
 
-    list=[]
-    dict={}
+    lista=[]
+    dic={}
     for entry in queryset:
         year=entry['tupa_office_end__document_tupa__created'].year
+        print(year)
         month=entry['tupa_office_end__document_tupa__created'].month
         day=entry['tupa_office_end__document_tupa__created'].day
 
-        param_date=parse_date(date)
-        #print(param_date)
-        #print(param_date.day)
-        #print(day)
-        print(param_date.year)
-        print(year)
-        if (year is param_date.year) and (month is param_date.month ) and (day is param_date.day):
-        #if (month is param_date.month):
-            print(entry['tupa_office_end__document_tupa__created'])
+        date_year=parse_date(date).year
+        date_month = parse_date(date).month
+        date_day= parse_date(date).day
+
+        if (int(day) == int(date_day)) and (int(month) == int(date_month)) and (int(year )== int(date_year)):
+
+            id_tupa = models.Tupa.objects.values('tup_des').filter(pk=entry['tupa_office_end__document_tupa__id_tupa'])
+            ofi_des_begin = models.Office.objects.values('ofi_des').filter(
+                pk=entry['tupa_office_end__id_ofi_begin__id'])
+            ofi_des_end = models.Office.objects.values('ofi_des').filter(pk=entry['tupa_office_end__id_ofi_end__id'])
+            id_person = models.Person.objects.values('per_name', 'per_lastname').filter(
+                pk=entry['tupa_office_end__document_tupa__id_person_id'])
+
+            dic['id'] = entry['tupa_office_end__document_tupa__id']
+            dic['doc_number'] = entry['tupa_office_end__document_tupa__doc_number']
+            dic['doc_exp_number'] = entry['tupa_office_end__document_tupa__doc_exp_number']
+            dic['doc_pages'] = entry['tupa_office_end__document_tupa__doc_pages']
+            dic['id_tupa'] = id_tupa[0]['tup_des']
+
+            dic['id_person'] = str(id_person[0]['per_name'] + " " + id_person[0]['per_lastname'])
+            dic['doc_begin'] = ofi_des_begin[0]['ofi_des']
+            dic['doc_des'] = ofi_des_end[0]['ofi_des']
+            dic['created'] = entry['tupa_office_end__document_tupa__created']
+            lista.append(dic.copy())
 
         else:
             print("noo entra")
             continue
-    #return HttpResponse(queryset)
-    #value_list = models.Document.objects.values_list('doc_des', flat=True).distinct().filter(created__range=(today_min, today_max))
-    #data = {'documentos': value_list, 'date': datetime.date.today().strftime('%Y-%m-%d')}
-    #return render(request, 'dmp/conformidad.html', data)
-    return HttpResponse("a")
+    #data = {'documentos': lista}
+    return HttpResponse(lista)
+
 
 @login_required(redirect_field_name='my_redirect_field')
 def recibidosUsers(request):
     username = None
     if request.user.is_authenticated:
+
         username = request.user.username
-
-
         queryset = models.Office.objects.values('id', 'tupa_office_end__document_tupa__doc_number',
                                                 'tupa_office_end__document_tupa__doc_exp_number',
                                                 'tupa_office_end__document_tupa__doc_pages',
@@ -244,6 +319,7 @@ def recibidosUsers(request):
                                                 'tupa_office_end__document_tupa__id',
                                                 'tupa_office_end__document_tupa__created').filter(
             ofi_des__icontains=username)
+
         lista = []
         for entry in queryset:
             try:
@@ -279,3 +355,13 @@ def recibidosUsers(request):
         return HttpResponse("No esta logeado")
 
     # return render(request, 'dusers/enviados.html', data)
+
+@login_required(redirect_field_name='my_redirect_field')
+def imprimirHojaTramite(request):
+    data={}
+    latest_id = models.Person.objects.latest('id')
+    #return JsonResponse({'datos': {'id': latest_id.id, 'nombres': latest_id.per_name + " " + latest_id.per_lastname,'dni': latest_id.per_doc}})
+
+    data['home'] = 'active'
+    return render(request, 'dmp/print.html', {'datos': data, })
+

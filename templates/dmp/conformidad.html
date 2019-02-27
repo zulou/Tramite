@@ -7,7 +7,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Registro de Persona</h5>
+                    <h5 class="modal-title" id="exampleModalLabel2">Registro de Persona</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -17,8 +17,8 @@
 
 
                     <div class="card" id="cardConformidad">
-                        <div class="card-header">Cargo de Conformidad
-                            <strong>#90-98792</strong>
+                        <div class="card-header">  <h5 align="center">Cargo de Conformidad - <strong id="id_ambiente"></strong></h5>
+
                             <a class="btn btn-sm btn-secondary float-right mr-1 d-print-none" id="imprimirConformidad"
                                href="#" onclick="">
                                 <i class="fa fa-print"></i> Print</a>
@@ -31,10 +31,15 @@
                                        style="width:100%">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
+
+                                        <th>c.</th>
+                                        <th>nD.</th>
+                                        <th>F.</th>
+                                        <th>Tupa</th>
+                                        <th>Administrado</th>
+                                        <th>Origen</th>
                                         <th>Destino</th>
-                                        <th>F.Regitro</th>
-                                        <th>Editar/ver</th>
+                                        <th>F.</th>
 
 
                                     </tr>
@@ -44,7 +49,9 @@
                                 </table>
                             </div>
                         </div>
+                        <h6 align="left"><strong>     Fecha y Hora:______________Recepcionista:_______________________________________</strong></h6>
                     </div>
+
                 </div>
                 <!--                   -->
 
@@ -99,6 +106,8 @@
     <script>
         var dataset = [];
         var path = "http://127.0.0.1:8000";
+        var ambiente="";
+        var datasett = new Array;
 
         {% if documentos %}
 
@@ -110,7 +119,7 @@
                     date: "{{date}}",
 
                 });
-                console.log("{{document}}");
+                //console.log("{{document}}");
             {% endfor%}
 
         {% else %}
@@ -120,6 +129,41 @@
 
 
         $(document).ready(function () {
+
+            var datatable = $('#list-conformidad-imprimir').DataTable({
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                },
+                {#dom: "Bfrtip",#}
+                "data": datasett,
+
+                "order": [[0, "desc"]],
+                "pageLength": 30,
+                "lengthMenu": false,
+                "bLengthChange": false,
+                select: true
+            });
 
 
             var table = $('#list-conformidad').DataTable({
@@ -169,25 +213,51 @@
             });
             $('#imprimirConformidad').click(function (e) {
 
+
                 $('#cardConformidad').printThis();
             });
 
-            function get_document_date(id,date){
-                  $.ajax({
-                    url: path+"/get_documentos_conformidad/" + id+ "/"+date+"/",
+
+            function get_id_office(office, date) {
+                var id_office;
+                $.ajax({
+                    url: path + "/get_id_office/" + office + "/" + date + "/",
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
+                        //console.log(data.data);
+                        var dataSet = new Array;
+                        $.each(data.data, function (index, value) {
+                            var tempArray = new Array;
+                            for (var o in value) {
+                                if(o=="doc_des"){
+                                    ambiente=value.doc_des;
+                                }
 
-                        alert("éxito!!1");
+                                tempArray.push(value[o]);
+                            }
+                            dataSet.push(tempArray);
+                        });
+
+                        datatable.clear().draw();
+                        datatable.rows.add(dataSet); // Add new data
+                        datatable.columns.adjust().draw(); //
+
+
                     }
                 });
+
             }
+
 
             $('#list-conformidad tbody').on('click', 'a.btn.btn-info', function () {
                 var data = table.row($(this).parents('tr')).data();
-                console.log(data);
-                get_document_date(data.id,data.date);
+                //console.log(data);
+                $('#id_ambiente').text(ambiente);
+                get_id_office(data.doc_des, data.date);
+                var date_document = data.date;
+
+                //get_document_date(id_ofi, data.date);
 
                 $('#modalConformidad').modal('show');
             });
@@ -195,7 +265,7 @@
             $('#list-conformidad tbody').on('click', 'button.btn-outline-primary', function () {
                 var data = table.row($(this).parents('tr')).data();
                 //get_document_date(data.id,data.date);
-                console.log(data.id);
+                //console.log(data.id);
             });
 
             $('#button-pay').click(function (e) {

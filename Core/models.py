@@ -85,6 +85,7 @@ class Document (models.Model):
     doc_des = models.CharField(max_length=50, null=False)
     doc_pages = models.IntegerField( null=False)
     doc_type= models.IntegerField( null=False)
+    doc_status = models.IntegerField(null=False)
     created=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

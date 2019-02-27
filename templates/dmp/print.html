@@ -1,0 +1,90 @@
+{% load user_extras %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoja de Tramite</title>
+
+
+    <link href="/static/cssT/coreui-icons.min.css" rel="stylesheet">
+
+    <link href="/static/cssT/flag-icon.min.css" rel="stylesheet">
+
+    <link href="/static/cssT/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/static/cssT/simple-line-icons.css" rel="stylesheet">
+
+    <link href="/static/cssT/jquery-ui.css" rel="stylesheet">
+
+    <!--<link href="/static/cssT/datatables.css" rel="stylesheet">-->
+    <link href="/static/cssT/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Main styles for this application-->
+    <link href="/static/cssT/style.css" rel="stylesheet">
+    <link href="/static/cssT/pace.min.css" rel="stylesheet">
+    <script src="{% static 'jsT/jquery.min.js' %}"></script>
+    <script src="{% static 'jsT/popper.min.js' %}"></script>
+    <script src="{% static 'jsT/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jsT/pace.min.js' %}"></script>
+    <script src="{% static 'jsT/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'jsT/coreui.min.js' %}"></script>
+    <script src="{% static 'jsT/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'jsT/printThis.js' %}"></script>
+    <script src="{% static 'jsT/hojaTramite.js' %}"></script>
+
+</head>
+<body>
+<div id="id_hoja_tramite" align="center">
+    <h2><strong>Hoja de Tramite</strong></h2>
+    <table class="table table-sm table-borderless" style="width: 90%;">
+        <tbody>
+        <tr>
+            <td style="width: 30.1308%;"> <strong>Nro. Expediente:</strong></td>
+            <td style="width: 66.8692%;" id="id_expediente_hoja_tramite"></td>
+        </tr>
+        <tr>
+            <td style="width: 30.1308%;"><strong>Administrado:</strong> &nbsp;</td>
+            <td style="width: 66.8692%;" class="id_administrado_hoja_tramite">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 30.1308%;"><strong>Documento:</strong> </td>
+            <td style="width: 66.8692%;" class="id_documento_hoja_tramite">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 30.1308%;"> <strong>Folios:</strong>&nbsp;</td>
+            <td style="width: 66.8692%;" class="id_folios_hoja_tramite">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 30.1308%;"> <strong>Asunto:</strong> </td>
+            <td style="width: 66.8692%;" class="id_doc_des_hoja_tramite">&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="center">#</th>
+            <th>Administrado</th>
+            <th>Documento</th>
+            <th class="center">Numero</th>
+            <th class="right">Folios</th>
+            <th class="right">Asunto</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="center">1</td>
+            <td class="left" id="id_administrado_hoja_tramite">Origin License</td>
+            <td class="left" id="id_documento_exp_number">Extended License</td>
+            <td class="center" id="id_documento_hoja_tramite">1</td>
+            <td class="right"id="id_folios_hoja_tramite">$999,00</td>
+            <td class="right" id="id_doc_des_hoja_tramite">$999,00</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

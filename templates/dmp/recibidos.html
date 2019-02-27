@@ -3,8 +3,137 @@
 {% load static %}
 {% block content %}
 
-    <div class="card">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Actualizar Expediente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
 
+                <form id="form_registro_expediente" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <input class="form-control" id="id_document" type="hidden">
+                                <label for="ccmonth">Documento</label>
+                                <select class="form-control" id="id_type_document">
+                                    <option>Seleccionar</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="name">Numero</label>
+                                <input class="form-control" id="doc_number" type="text" placeholder="Numero">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="name">Folios</label>
+                                <input class="form-control" id="doc_pages" type="text" placeholder="Folios">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="name">Dni</label>
+                                <input class="form-control" id="per_dni" type="text" placeholder="Dni">
+                                <input class="form-control" id="id_person" type="hidden">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="name">Administrado</label>
+                                <input class="form-control" id="id_nombre" type="text" placeholder="Administrado">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="name">Tupa</label>
+                                <input class="form-control" id="id_tupa" type="hidden" placeholder="Enter your name">
+                                <input class="form-control" id="id_tupa_description" type="text"
+                                       placeholder="Enter your name">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="name">Asunto</label>
+                                <input class="form-control" id="doc_tupa" type="text" placeholder="Asunto">
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="name">Oficina Destino</label>
+                                <input class="form-control" id="id_nombre_destino" type="text"
+                                       placeholder="Enter your name">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="id_file_expediente" lang="es">
+                                    <label class="custom-file-label" for="id_file_expediente">Seleccionar
+                                        Archivo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <!--<label for="ccmonth">Documento</label> -->
+                                <input class="form-control" id="doc_type" type="hidden" value="3"
+                                       placeholder="Enter your name">
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+
+                                <button type="button" id="btn_registrar_expediente"
+                                        class="btn btn-primary btn-lg btn-block">Actualizar Expediente
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!--Modal-->
+    <div class="card">
     <div class="card-header">
         <i class="fa fa-edit"></i> DataTables
         <div class="card-header-actions">
@@ -46,6 +175,7 @@
     <script src="{% static 'jsT/jquery.dataTables.js' %}"></script>
     <script src="{% static 'jsT/dataTables.bootstrap4.js' %}"></script>
     <script src="{% static 'jsT/datatables.js' %}"></script>
+    <script src="{% static 'jsT/editExpediente.js' %}"></script>
     <!--<script src="{% static 'jsT/enviadosAdm.js' %}"></script>-->
 
     <script>
@@ -119,7 +249,7 @@
                     {
                         "targets": -1,
                         "data": null,
-                        "defaultContent": '<a class="btn btn-info" href="#"><i class="fa fa-edit"></i></a>    <a class="btn btn-success" href="#"><i class="fa fa-search-plus"></i></a>'
+                        "defaultContent": '<a class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat" href="#"><i class="fa fa-edit"></i></a>    <a class="btn btn-success" href="#"><i class="fa fa-search-plus"></i></a>'
                     }
                 ],
                 "order": [[0, "desc"]],
@@ -130,19 +260,13 @@
             });
 
 
-            $('#list-persona tbody').on('click', 'button.btn-outline-warning', function () {
+            $('#list-persona tbody').on('click', 'a.btn.btn-info', function () {
                 var data = table.row($(this).parents('tr')).data();
+                $('#exampleModal').show();
+
+                get_data_document(data.id);
 
                 console.log(data);
-                $("#id_pay").val(data.id);
-                $("#voucher").val(data.voucher);
-                $("#dni_pay").val(data.dni);
-                $("#full_name").val(data.name);
-                $("#concession").val(data.market + "  /  " + data.section + " / " + data.point);
-                $("#price").val(data.price_point);
-                $('#edit_vouchers').modal('show');
-
-
             });
 
             $('#list-persona tbody').on('click', 'button.btn-outline-primary', function () {

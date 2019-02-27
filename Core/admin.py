@@ -43,8 +43,8 @@ class PersonAdmin(admin.ModelAdmin):
     list_display = ('id_doc','per_name','per_lastname','per_doc','per_cellphone','per_type')
 
 class DocumentAdmin(admin.ModelAdmin):
-    search_fields = ['id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type','created']
-    list_display = ('id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type','created')
+    search_fields = ['id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type','doc_status','created']
+    list_display = ('id_type_document','id_person','id_tupa','doc_number','doc_exp_number','doc_des','doc_pages','doc_type','doc_status','created')
 
 class AttachmentsAdmin(admin.ModelAdmin):
     search_fields = ['id_doc','att_path']
