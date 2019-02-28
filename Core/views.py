@@ -377,4 +377,10 @@ def update_movements(request,id_doc,id_tupa):
     #return HttpResponse(query_tupa)
     return JsonResponse({'datos':{'id_movement': query[0]['id'], 'tupa_id': query_tupa[0]}})
 
+@login_required(redirect_field_name='my_redirect_field')
+def HojaTramite(request,id_doc):
+    data={}
+    latest_id = models.Document.objects.values('id').filter(pk=id_doc)
 
+
+    return render(request, 'dmp/hojaTramite.html', {'datos':latest_id})

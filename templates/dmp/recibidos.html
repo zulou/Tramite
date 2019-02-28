@@ -263,15 +263,12 @@
             $('#list-persona tbody').on('click', 'a.btn.btn-info', function () {
                 var data = table.row($(this).parents('tr')).data();
                 $('#exampleModal').show();
-
                 get_data_document(data.id);
-
-                console.log(data);
             });
 
-            $('#list-persona tbody').on('click', 'button.btn-outline-primary', function () {
+            $('#list-persona tbody').on('click', 'a.btn.btn-success', function () {
                 var data = table.row($(this).parents('tr')).data();
-                console.log(data.id);
+                window.open(path+"/HojaTramite/"+data.id+"/");
             });
 
             $('#button-pay').click(function (e) {
