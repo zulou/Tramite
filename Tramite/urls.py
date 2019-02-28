@@ -50,6 +50,8 @@ urlpatterns = [
 
     path('imprimirHojaTramite/', views.imprimirHojaTramite, name='imprimir_hoja_tramite'),
 
+    path('update_movements/<id_doc>/<id_tupa>/', views.update_movements, name='update_movements'),
+
 
 ]
 

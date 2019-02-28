@@ -268,7 +268,7 @@ function registrar_attachment_movements(id_document) {
             $("#btn_registrar_expediente").prop("disabled", false);
             alert("se Regitro con exito");
 
-            window.open(path + "/imprimirHojaTramite/");
+            //window.open(path + "/imprimirHojaTramite/");
             window.location.reload();
 
 
@@ -328,11 +328,14 @@ $('#btn_registrar_expediente').click(function () {
             var namePdf=$('.custom-file-label').html();
             console.log(namePdf)
             if(namePdf==id_doc+".pdf"){
-                alert("Actualizado con éxito!!");
+                //alert("Actualizado con éxito!!");
+                update_movements(id_doc,id_tupa);
                 window.location.reload();
+
             }
             else{
-                last_insert_document();
+                update_movements(id_doc,id_tupa);
+                registrar_attachment_movements(id_doc);
             }
 
 
@@ -343,6 +346,58 @@ $('#btn_registrar_expediente').click(function () {
     });
 
 });
+
+function update_movements(id_doc,id_tupa){
+
+    $.ajax({
+        url: path + "/update_movements/"+id_doc+"/"+id_tupa+"/",
+        type: "GET",
+        success: function (data) {
+            console.log(data.datos);
+            update_id_movements(id_doc,id_tupa,data.datos.id_movement,data.datos.tupa_id.id_ofi_begin,data.datos.tupa_id.id_ofi_end);
+        },
+        error: function () {
+            alert("error en el registro ");
+
+        }
+    });
+
+}
+
+
+function update_id_movements(id_doc,id_tupa,id_movement,id_ofi_begin,id_ofi_end){
+    var datos;
+    var csrf = $('#form_registro_expediente input[name=csrfmiddlewaretoken]').val();
+    datos = {
+
+        csrfmiddlewaretoken: csrf,
+        id_movement: id_movement,
+        id_doc: id_doc,
+        mov_order: 0,
+        id_attachments: id_doc,
+        id_ofi_begin: id_ofi_begin,
+        id_ofi_end: id_ofi_end,
+        id_doc_sender: id_tupa,
+        move_recibed: 1,
+
+
+    };
+$.ajax({
+        url: path + "/api/Movements/"+id_movement+"/",
+        type: "PUT",
+        data: datos,
+        success: function (data) {
+            console.log('success movement update');
+            alert("actualizado con éxito!!");
+            window.location.reload();
+
+        },
+        error: function () {
+            alert("error en el registro ");
+
+        }
+    });
+}
 
 $('#id_file_expediente').on('change', function () {
     //get the file name

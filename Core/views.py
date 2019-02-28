@@ -1,9 +1,12 @@
+from builtins import id
+
 from django.forms import renderers
 from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from django.utils.dateparse import parse_date
 
 import datetime
+import os.path
 from django.db.models.query import QuerySet
 from django.core import serializers
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
@@ -180,6 +183,9 @@ def register_attachment(request):
             # form = FileUploadForm(data=request.POST, files=request.FILES)
 
             Diccionario = dict(request.POST.lists())
+            if os.path.exists('media/documents/'+Diccionario['path'][0]+".pdf"):
+                os.remove('media/documents/'+Diccionario['path'][0]+".pdf")
+
             path = Diccionario['path'][0]
             file = request.FILES['file']
             fs = FileSystemStorage(location=os.path.join('media/documents'))
@@ -364,4 +370,11 @@ def imprimirHojaTramite(request):
 
     data['home'] = 'active'
     return render(request, 'dmp/print.html', {'datos': data, })
+
+def update_movements(request,id_doc,id_tupa):
+    query=models.Movements.objects.values('id').filter(id_doc__exact=id_doc,mov_order__exact=0)
+    query_tupa=models.Tupa.objects.values('id_ofi_begin','id_ofi_end').filter(id=id_tupa)
+    #return HttpResponse(query_tupa)
+    return JsonResponse({'datos':{'id_movement': query[0]['id'], 'tupa_id': query_tupa[0]}})
+
 
