@@ -52,6 +52,7 @@ urlpatterns = [
 
     path('update_movements/<id_doc>/<id_tupa>/', views.update_movements, name='update_movements'),
     path('HojaTramite/<id_doc>/', views.HojaTramite, name='hoja_tramite'),
+    path('BandejaEntrada/', views.BandejaEntrada, name='bandeja_entrada'),
 
 
 

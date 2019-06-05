@@ -331,12 +331,9 @@ def recibidosUsers(request):
             try:
                 dic = {}
                 id_tupa = models.Tupa.objects.values('tup_des').filter(pk=entry['tupa_office_end__document_tupa__id_tupa'])
-                ofi_des_begin = models.Office.objects.values('ofi_des').filter(
-                    pk=entry['tupa_office_end__id_ofi_begin__id'])
+                ofi_des_begin = models.Office.objects.values('ofi_des').filter(pk=entry['tupa_office_end__id_ofi_begin__id'])
                 ofi_des_end = models.Office.objects.values('ofi_des').filter(pk=entry['tupa_office_end__id_ofi_end__id'])
-                id_person = models.Person.objects.values('per_name', 'per_lastname').filter(
-                    pk=entry['tupa_office_end__document_tupa__id_person_id'])
-
+                id_person = models.Person.objects.values('per_name', 'per_lastname').filter(pk=entry['tupa_office_end__document_tupa__id_person_id'])
                 dic['id'] = entry['tupa_office_end__document_tupa__id']
                 dic['doc_number'] = entry['tupa_office_end__document_tupa__doc_number']
                 dic['doc_exp_number'] = entry['tupa_office_end__document_tupa__doc_exp_number']
@@ -384,3 +381,59 @@ def HojaTramite(request,id_doc):
 
 
     return render(request, 'dmp/hojaTramite.html', {'datos':latest_id})
+
+
+@login_required(redirect_field_name='my_redirect_field')
+def BandejaEntrada(request):
+    username = None
+    if request.user.is_authenticated:
+
+        username = request.user.username
+        pk_username=models.Office.objects.values('id').filter(ofi_des__icontains=username)
+        queryset_movements=models.Movements.objects.values('id_doc').filter(id_ofi_end__exact=pk_username[0]['id']).filter(move_recibed__exact=1)
+        lista=[]
+        for entry_queryset in queryset_movements:
+            #print(entry_queryset['id_doc'])
+            try:
+                queryset = models.Office.objects.values('id', 'tupa_office_end__document_tupa__doc_number',
+                                                        'tupa_office_end__document_tupa__doc_exp_number',
+                                                        'tupa_office_end__document_tupa__doc_pages',
+                                                        'tupa_office_end__document_tupa__id_tupa'
+                                                        , 'tupa_office_end__document_tupa__id_person_id',
+                                                        'tupa_office_end__id_ofi_begin__id',
+                                                        'tupa_office_end__id_ofi_end__id',
+                                                        'tupa_office_end__document_tupa__doc_des',
+                                                        'tupa_office_end__document_tupa__id',
+                                                        'tupa_office_end__document_tupa__created').filter(
+                    tupa_office_end__document_tupa__id__exact=entry_queryset['id_doc'])
+            except:
+                continue
+
+        for entry in queryset:
+            dic = {}
+            id_tupa = models.Tupa.objects.values('tup_des').filter(pk=entry['tupa_office_end__document_tupa__id_tupa'])
+            ofi_des_begin = models.Office.objects.values('ofi_des').filter(pk=entry['tupa_office_end__id_ofi_begin__id'])
+            ofi_des_end = models.Office.objects.values('ofi_des').filter(pk=entry['tupa_office_end__id_ofi_end__id'])
+            id_person = models.Person.objects.values('per_name', 'per_lastname').filter(pk=entry['tupa_office_end__document_tupa__id_person_id'])
+            dic['id'] = entry['tupa_office_end__document_tupa__id']
+            dic['doc_number'] = entry['tupa_office_end__document_tupa__doc_number']
+            dic['doc_exp_number'] = entry['tupa_office_end__document_tupa__doc_exp_number']
+            dic['doc_pages'] = entry['tupa_office_end__document_tupa__doc_pages']
+            dic['id_tupa'] = id_tupa[0]['tup_des']
+
+            dic['id_person'] = str(id_person[0]['per_name'] + " " + id_person[0]['per_lastname'])
+            dic['doc_begin'] = ofi_des_begin[0]['ofi_des']
+            dic['doc_des'] = ofi_des_end[0]['ofi_des']
+            dic['created'] = entry['tupa_office_end__document_tupa__created']
+
+            lista.append(dic.copy())
+
+
+        data = {'documentos': lista}
+        return render(request, 'dmp/bandejaEntrada.html', data)
+
+        #return HttpResponse(lista)
+
+    else:
+        return HttpResponse("No esta logeado")
+
